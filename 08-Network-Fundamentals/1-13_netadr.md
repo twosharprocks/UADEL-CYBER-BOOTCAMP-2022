@@ -40,6 +40,6 @@ Your security manager also found the following binary data in the hacker's logs:
 
 * 100010001111011111000111011001010001101000110110
 
-Determine what this binary data represents. MAC Address = 88F7C7651A36
+Determine what this binary data represents. MAC Address = 88F7C7651A36 `Technicolor CH Usa Inc`
 
 _Hint: This may translate to an IP address, but it is not actually an IP address_.
