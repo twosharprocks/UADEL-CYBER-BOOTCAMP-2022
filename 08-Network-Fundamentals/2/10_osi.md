@@ -1,0 +1,45 @@
+## **Activity File: OSI**
+
+In this exercise, you'll continue to play the role of a security analyst at Acme Corp.
+
+
+
+* You will be analyzing 10 suspicious network-related activities that have occurred at Acme Corp, which may be associated with Sally Stealer. \
+
+* Your task is to document at which OSI layer each of these situations occurred to help the Networking team pull the necessary logs for investigation.
+
+
+### **Instructions**
+
+Review the list of 10 suspicious activities and determine which of the seven OSI layers each falls under:
+
+
+1. A networking cable was cut in the Data Center and now no traffic can go out.
+    1. Level 1 - `Physical`
+
+2. A code injection was submitted from an administrative website, and it's possible that an attacker can now see unauthorized directories from your Linux server.
+    2. Level 7 - `Application Layer`
+
+3. The MAC address of one of your network interface cards has been spoofed and is preventing some traffic from reaching its destination.
+    3. Level 2 - `Data Link Layer \
+
+4. Your encrypted web traffic is now using a weak encryption cipher and the web traffic is now vulnerable to decryption.
+    4. Level 6 - `Presentation Layer \
+
+5. The destination IP address has been modified and traffic is being routed to an unauthorized location.
+    5. Level 3 - `Network Layer \
+
+6. A flood of TCP requests is causing performance issues.
+    6. Level 4 -  `Transport Layer`
+
+7. A SQL injection attack has been detected by the SOC. This SQL injection may have deleted several database tables.
+    7. Level 7 - `Application Layer` 
+
+8. A switch suddenly stopped working and local machines aren't receiving any traffic.
+    8. Level 1 - `Physical Layer`
+
+9. An ethernet cable was disconnected and the machine connected isn't able to receive any external traffic.
+    9. Level 1 - `Physical Layer`
+
+10. Traffic within the network is now being directed from the switch to a suspicious device.
+    10. Level 5 - `Session Layer`
