@@ -26,57 +26,57 @@ You will also use these credentials to access Sguil.
 
 2. Using the information presented in the Event Query window, highlight the alert that contains the IP `130.89.149.129`, and answer the following questions:
 
-    - In the Packet Data window, what was the FTP server response and what type of file was downloaded?
+    - In the Packet Data window, what was the FTP server response and what type of file was downloaded? `RETR /pub/software/mirc/mirc635.exe..`
     
     
-    - What Snort rule triggered this alert?
+    - What Snort rule triggered this alert? ``
     
     
-    - What is the Snort message?
+    - What is the Snort message? `alert tcp $HOME_NET any -> $EXTERNAL_NET 21 (msg:"ET INFO .exe File requested over FTP";
     
     
-    - What is the direction of traffic flow indicated by this alert?
+    - What is the direction of traffic flow indicated by this alert? `Outbound`
     
 
-    - Looking at the DNS resolution information contained in the IP Resolution Window, in what country is the victim located?
+    - Looking at the DNS resolution information contained in the IP Resolution Window, in what country is the victim located? `Netherlands`
 
    
  3. Switch from Sguil to NetworkMiner, select the **Parameters** tab, and answer the following questions.
  
-    - What username and password did the attacker use to log into the system?
+    - What username and password did the attacker use to log into the system? `Username: anonymous Password:IEUser@`
         
         
-    - Was the login successful?
+    - Was the login successful? `Successful`
     
         
-    - What is the name of the file the attacker tried to install on the victim's machine?
+    - What is the name of the file the attacker tried to install on the victim's machine? `mirc365.exe`
         
         
-    - Was the file transfer successful?
+    - Was the file transfer successful? `No - final server response is 150, not 226`
     
     
 4. In NetworkMiner, click on the **Hosts (2)** tab, right-click the IP `130.89.149.129`, and select **Expand All**. Answer the following questions.
 
-    - What is the MAC or hardware address of the server's network interface card (NIC)?
+    - What is the MAC or hardware address of the server's network interface card (NIC)? `001839F73ED2`
 
     
-    - What is the vendor of the NIC for the server’s machine?
+    - What is the vendor of the NIC for the server’s machine? `Cisco-Linksys, LLC`
 
 
-    - What is the MAC or hardware address of the victim’s machine?
+    - What is the MAC or hardware address of the victim’s machine? `000C299CAA25`
 
 
-    - What is the vendor of the NIC for the victim's machine? 
+    - What is the vendor of the NIC for the victim's machine? `VMware, Inc.`
 
 
-    - What operating system is the victim is using?
+    - What operating system is the victim is using? `Windows XP Pro`
 
 
-    - Looking at the Host Details portion of the server window, what URL did the attacker connect to in order to begin the file transfer?
+    - Looking at the Host Details portion of the server window, what URL did the attacker connect to in order to begin the file transfer? `ftp.snt.utwente.nl`
 
 
 5. Using the Chromium browser built into Security Onion, visit www.virustotal.com and perform a search against the URL that you discovered.
 
-    - How many virus engine matches come back?
+    - How many virus engine matches come back? `0 out of 92`
 
-    - Is this URL malicious?
+    - Is this URL malicious? `No`
