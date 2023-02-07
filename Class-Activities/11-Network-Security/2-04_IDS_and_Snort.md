@@ -27,7 +27,7 @@ Read and answer each question.
 
     - `alert ip any any -> any any {msg: "IP Packet Detected";}`
 
-        - `alert` `ction Snort will take when triggered`
+        - `alert` `Action Snort will take when triggered`
 
     
         - `ip` `Applies rule to all ip addresses`
