@@ -63,10 +63,10 @@ Answer the following questions as true or false:
 
 Answer the following questions:
 
-1. Name two methods for physically connecting an IDS to a network.
+1. Name two methods for physically connecting an IDS to a network. 
 
 
-2. Name the two stages of NSM and their processes.
+2. Name the two stages of NSM and their processes. `Detection` and `Response`
 
 ---
 © 2020 Trilogy Education Services, a 2U, Inc. brand. All Rights Reserved.
