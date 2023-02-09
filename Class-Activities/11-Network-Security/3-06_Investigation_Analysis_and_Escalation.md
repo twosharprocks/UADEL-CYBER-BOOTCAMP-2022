@@ -21,17 +21,17 @@ Using Squert, answer the following questions:
 
 Adjust time interval to go back to the year 2010 till End of current day.
 
-1. From the **Summary** tab, what is the top source IP?
+1. From the **Summary** tab, what is the top source IP? `172.16.150.20`
 
-2. From the same screen, what is the top destination IP?
+2. From the same screen, what is the top destination IP? `58.64.132.141`
 
 3. From the **Views** tab, answer the following questions: 
 
-   - What is the source/destination IP pair?
+   - What is the source/destination IP pair? `172.16.150.20` and `58.64.132.141`
    
-   - From source to destination, what is the count?
+   - From source to destination, what is the count? `916`
    
-   - From destination to source, what is the count?   
+   - From destination to source, what is the count?  `0`
 
 **Investigation and Escalation**
 
@@ -47,7 +47,7 @@ Pivot to Kibana using **DstIP**. Make sure you are at the **Indicator** dashboar
 
 Answer the following questions:
 
-1. How many connections are shown using the `bro_conn` filter?
+1. How many connections are shown using the `bro_conn` filter? `189`
 
 2. Delete the `bro_conn` filter. Are there any non-standard HTTP destination ports identified? If so, what are they?
 
