@@ -172,12 +172,10 @@ Next, lists all currently configured firewall rules. This will give you a good i
 
 - Run the command that sets your `eth` interface to your zones.
 
-    ```bash
-    $ sudo firewall-cmd --zone=public --change-interface=eth0
-    $ sudo firewall-cmd --zone=web --change-interface=eth1
-    $ sudo firewall-cmd --zone=sales --change-interface=eth2
-    $ sudo firewall-cmd --zone=mail --change-interface=eth3
-    ```
+    `$ sudo firewall-cmd --zone=public --change-interface=eth0`
+    `$ sudo firewall-cmd --zone=web --change-interface=eth1`
+    `$ sudo firewall-cmd --zone=sales --change-interface=eth2`
+    `$ sudo firewall-cmd --zone=mail --change-interface=eth3`
 
 #### Add services to the active zones:
 
@@ -246,9 +244,7 @@ You've decided to harden your network against `ping` scans by blocking `icmp ehc
 
 - Run the command that blocks `pings` and `icmp` requests in your `public` zone.
 
-    ```bash
-    $ sudo firewall-cmd --zone=public --add-icmp-block=echo-reply --add-icmp-block=echo-request
-    ```
+    `    $ sudo firewall-cmd --zone=public --add-icmp-block=echo-reply --add-icmp-block=echo-request`
 
 #### Rule Check
 
@@ -256,13 +252,11 @@ Now that you've set up your brand new `firewalld` installation, it's time to ver
 
 - Run the command that lists all  of the rule settings. Do one command at a time for each zone.
 
-    ```bash
-    $ sudo firewall-cmd --zone=public --list-all
-    $ sudo firewall-cmd --zone=web --list-all
-    $ sudo firewall-cmd --zone=sales --list-all
-    $ sudo firewall-cmd --zone=mail --list-all
-    $ sudo firewall-cmd --permanent --zone=drop --list-all
-    ```
+    `$ sudo firewall-cmd --zone=public --list-all`
+    `$ sudo firewall-cmd --zone=web --list-all`
+    `$ sudo firewall-cmd --zone=sales --list-all`
+    `$ sudo firewall-cmd --zone=mail --list-all`
+    `$ sudo firewall-cmd --permanent --zone=drop --list-all`
 
 - Are all of our rules are in place? If not, then go back and make the necessary modification before checking again.
 
