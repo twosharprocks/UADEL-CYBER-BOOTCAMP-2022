@@ -10,43 +10,43 @@ With the understanding that Defense in Depth can be broken down into three diffe
 
 1. Walls, bollards, fences, guard dogs, cameras, and lighting are what type of security control?
 
-   > Answer: Physical Security Control
+   > `Physical`
 
 2. Security awareness programs, BYOD policies, and ethical hiring practices are what type of security control?
 
-   > Answer: Administrative Security Controls
+   > `Administrative`
 
 3. Encryption, biometric fingerprint readers, firewalls, endpoint security, and intrusion detection systems are what type of security control?
 
-   > Answer: Technical Security Controls.
+   > `Technical`
 
 #### Intrusion Detection and Attack indicators
 
 1. What's the difference between an IDS and an IPS?
 
-   > Answer: An IDS requires an administrator to react to an alert by examining what has been flagged. An IPS can automatically take action by blocking and logging the threat.
+   > `An IDS only monitors and logs network traffic without modifying it, whereas an IPS monitors, logs and can modify/block traffic if a threat is detected.`
 
 2. What's the difference between an Indicator of Attack and an Indicator of Compromise?
 
-   > Answer: An IOA occurs in real time. It's a proactive approach to intrusion attempts. An IOC occurred at some point in the past. It's a reactive approach to intrusions.
+   > `An IOA is an indicator that an attack is happening right now or very recently, while an IOC is an indicator that occured in the past`
 
 #### The Cyber Kill Chain
 
 Name each of the seven stages for the Cyber Kill chain and provide a brief example of each.
 
-1. **Reconnaissance:** Information gathering stage against targeted victim. Information sources include, DNS registration websites, LinkedIn, Facebook, Twitter, etc.
+1. `Reconnaissance - Harvesting OSINT, email addresses, DNS records, ect`
 
-2. **Weaponization:** After collecting information regarding infrastructure and employees, adversaries have the capability to establish attack vectors and technical profiles of targets such as: logical and administrative security controls, infil/exfil points, etc.
+2. `Weaponisation - Establish an attack vector such as a vulnerability and develop a payload`
 
-3. **Delivery:** The delivering of the weaponized payload, via email, website, USB, etc.
+3. `Delivery - BadUSB, Malicious Email, SQL injection`
 
-4. **Exploitation:** Actively compromise adversary’s applications and servers while averting the physical, logical, and administrative controls. Exploiting employees through social engineering. This stage prepares for escalation during the installation phase.
+4. `Exploitation - Activation of vulnerability, clicking malicious email link`
 
-5. **Installation:** a.k.a, the persistence preparation phase. Activities include, malicious software installation, backdoor implants, persistence mechanism (cron jobs), AutoRun keys, services, log file deletion, and timestamp manipulation.
+5. `Installation - Web server shell or backdoor, add OS services for persistence`
 
-6. **Command & Control (C2):** A command channel, most typically Internet Relay Chat (IRC), used for remote control of a victim's computer.
+6. `Command & Control (C2) - Web, DNS, Email to establish two-way communications`
 
-7. **Actions on Objectives:** After achieving the equivalent of "Hands on Keyboard" access to a victim's systems, adversaries are now able to act their objectives.
+7. `Actions on Objectives - Collect/modify/destroy data and user credentials`
 
 
 #### Snort Rule Analysis
@@ -61,15 +61,15 @@ alert tcp $EXTERNAL_NET any -> $HOME_NET 5800:5820 (msg:"ET SCAN Potential VNC S
 
 1. Break down the Sort Rule header and explain what is happening.
 
-   > Answer: Generates an alert, for tcp traffic inbound from anywhere outside the LAN on any port, to port 5800 through 5820 on the LAN.
+   > `Generates an alert for any inbound tcp traffic from anywhere and from any port heading to $HOME_NET on port 5800 to 5820`
 
 2. What stage of the Cyber Kill Chain does this alert violate?
 
-   > Answer: Reconnaissance
+   > `Stage 2 - Reconnaissance`
 
 3. What kind of attack is indicated?
 
-   > Answer: Emerging Threat for Network SCAN Potential VNC Scan of port 5800-5820"
+   > `Potential VNC Scan 5800-5820 (Port Scanning)`
 
 Snort Rule #2
 
@@ -79,21 +79,21 @@ alert tcp $EXTERNAL_NET $HTTP_PORTS -> $HOME_NET any (msg:"ET POLICY PE EXE or D
 
 1. Break down the Sort Rule header and explain what is happening.
 
-   > Answer: Generate an alert, for tcp traffic inbound from anywhere outside the LAN on port 80, to any port on the LAN.
+   > `Generates an alert for any inbound tcp traffic from anywhere and on port 80, heading to $HOME_NET on any port`
 
 2. What stage of the Cyber Kill Chain does the alerted activity violate?
 
-   > Answer: Stage 3 Delivery
+   > `Stage 3 - Delivery`
 
 3. What kind of attack is this rule monitoring?
 
-   > Answer: Emerging Threat for Policy Violation "EXE or DLL Windows file download"
+   > `Emerging threat - Policy violation by EXE or DLL Windows file download by HTTP`
 
 Snort Rule #3
 
 - Your turn! Write a Snort rule that alerts when traffic is detected inbound on port 4444 to the local network on any port. Be sure to include the `msg` in the Rule Option.
 
-   > Answer: alert tcp $EXTERNAL_NET 4444 -> $HOME_NET any (msg: "ET POLICY TROJAN Possible W32.Blaster.Worm)
+   > `alert tcp $EXTERNAL_NET 4444 -> $HOME_NET any (msg:"ET POLICY TROJAN Possible W32.Blaster.Worm")`
 
 
 ### Part 2: "Drop Zone" Lab
@@ -111,9 +111,7 @@ Before you get started, it's generally best practice to ensure that you do not h
 
 - Run the command that removes any running instance of `ufw`.
 
-    ```bash
-    $ sudo apt remove ufw
-    ```
+    `sudo apt remove ufw`
 
 #### Enable and start `firewalld`
 
@@ -121,10 +119,8 @@ By default, these service should be running. If not, then run the following comm
 
 - Run the commands that enable and start `firewalld` upon boots and reboots.
 
-    ```bash
-    $ sudo systemctl enable firewalld
-    $ sudo systemctl start firewalld
-    ```
+    `sudo systemctl enable firewalld`
+    `sudo systemctl start firewalld`
 
   Note: This will ensure that `firewalld` remains active after each reboot.
     
@@ -132,9 +128,7 @@ By default, these service should be running. If not, then run the following comm
 
 - Run the command that checks whether or not the `firewalld` service is up and running.
 
-    ```bash
-    $ sudo firewall-cmd --state
-    ```
+    `sudo systemctl status firewalld`
     
     
 #### List all firewall rules currently configured.
@@ -143,9 +137,7 @@ Next, lists all currently configured firewall rules. This will give you a good i
 
 - Run the command that lists all currently configured firewall rules:
 
-    ```bash
-    $ sudo firewall-cmd --list-all
-    ```
+    `sudo firewall-cmd --list-all`
 
 - Take note of what Zones and settings are configured. You many need to remove unneeded services and settings. 
 
@@ -153,20 +145,15 @@ Next, lists all currently configured firewall rules. This will give you a good i
 
 - Run the command that lists all currently supported services to see if the service you need is available
 
-    ```bash
-    $ sudo firewall-cmd --get-services
-    ```
+    `sudo firewall-cmd --get-services`
 
  Note: that we can see that the `Home` and `Drop` Zones are created by default.
     
-
 #### Zone Views
 
 - Run the command that lists all currently configured zones.
 
-    ```bash
-    $ sudo firewall-cmd --list-all-zones
-    ```
+    `sudo firewall-cmd --list-all-zones`
 
 - We can see that the `Public` and `Drop` Zones are created by default. Therefore, we will need to create Zones for `Web`, `Sales`, and `Mail`.
 
@@ -174,11 +161,10 @@ Next, lists all currently configured firewall rules. This will give you a good i
 
 - Run the command that creates Web, Sales and Mail zones.
 
-    ```bash
-    $ sudo firewall-cmd --permanent --new-zone=web
-    $ sudo firewall-cmd --permanent --new-zone=sales
-    $ sudo firewall-cmd --permanent --new-zone=mail
-    ```
+    `$ sudo firewall-cmd --permanent --new-zone=web`
+    `$ sudo firewall-cmd --permanent --new-zone=sales`
+    `$ sudo firewall-cmd --permanent --new-zone=mail`
+
 - Reload the firewalld service in order to apply your changes. 
   - Run: `firewall-cmd --reload` or `systemctl restart firewalld` .
 
@@ -199,43 +185,38 @@ Next, lists all currently configured firewall rules. This will give you a good i
 
 - Public:
 
-    ```bash
-    $ sudo firewall-cmd --zone=public --add-service=http
-    $ sudo firewall-cmd --zone=public --add-service=https
-    $ sudo firewall-cmd --zone=public --add-service=smtp
-    $ sudo firewall-cmd --zone=public --add-service=pop3
-    ```
+    `$ sudo firewall-cmd --zone=public --add-service=http`
+    `$ sudo firewall-cmd --zone=public --add-service=https`
+    `$ sudo firewall-cmd --zone=public --add-service=smtp`
+    `$ sudo firewall-cmd --zone=public --add-service=pop3`
 
 - Web: 
 
-    ```bash
-    $ sudo firewall-cmd --zone=web --add-service=http
-    ```
+    `$ sudo firewall-cmd –-permanent –-zone=web –-add-service=http`
 
 - Sales
 
-    ```bash
-    $ sudo firewall-cmd --zone=sales --add-service=https
-    ```
+    `$ sudo firewall-cmd –-permanent –-zone=sales –-add-service=https`
 
 - Mail
 
-    ```bash
-    $ sudo firewall-cmd --zone=mail --add-service=pop3
-    $ sudo firewall-cmd --zone=mail --add-service=smtp
-    ```
+    `$ sudo firewall-cmd –-permanent –-zone=mail –-add-service=smtp`
+    `$ sudo firewall-cmd –-permanent –-zone=mail –-add-service=pop3`
+
 
 - What is the status of `http`, `https`, `smtp` and `pop3`?
+
+   `sudo firewall-cmd --list-services`
+   `Active services = dhcpv6-client http https pop3 smtp ssh`
+
 
 #### Add you adversaries to the Drop Zone.
 
 - Run the command that will add all current and any future blacklisted IPs to the Drop Zone.
 
-     ```bash
-    $ sudo firewall-cmd --permanent --zone=drop --add-source=10.208.56.23
-    $ sudo firewall-cmd --permanent --zone=drop --add-source=135.95.103.76
-    $ sudo firewall-cmd --permanent --zone=drop --add-source=76.34.169.118
-    ```
+     `$ sudo firewall-cmd --permanent --zone=drop --add-source=10.208.56.23`
+     `$ sudo firewall-cmd --permanent --zone=drop --add-source=135.95.103.76`
+     `$ sudo firewall-cmd --permanent --zone=drop --add-source=76.34.169.118`
     
 #### Make rules permanent then reload them:
 
@@ -243,9 +224,7 @@ It's good practice to ensure that your `firewalld` installation remains nailed u
 
 - Run the command that reloads the `firewalld` configurations and writes it to memory
 
-    ```bash
-    $ sudo firewall-cmd --reload
-    ```
+    `$ sudo firewall-cmd --reload`
  
 #### View active Zones
 
@@ -253,36 +232,13 @@ Now we'll want to provide truncated listings of all currently active zones. This
 
 - Run the command that displays all zone services.
 
-    ```bash
-    $ sudo firewall-cmd --get-active-zones
-    ```
-    
-- Output should be similar to below:
-    
-    ```bash
-    mail
-        interfaces: eth3
-        sources: 201.45.105.12
-    web
-        interfaces: eth1
-        sources: 201.45.34.126
-    drop
-        sources: 10.208.56.23 135.95.103.76 76.34.169.118
-    sales
-        interfaces: eth2
-        sources: 201.45.15.48
-    public
-        interfaces: ens33 eth0
-    ```
-
+    `$ sudo firewall-cmd --get-active-zones`
 
 #### Block an IP address
 
 - Use a rich-rule that blocks the IP address `138.138.0.3`.
 
-    ```bash
-    $ sudo firewall-cmd --zone=public --add-rich-rule='rule family="ipv4" source address="138.138.0.3" reject'
-    ```
+    `$ sudo firewall-cmd --zone-public --add-rich-rule=’rule family=”ipv4” source address=”138.138.0.3” reject’`
 
 #### Block Ping/ICMP Requests
 
