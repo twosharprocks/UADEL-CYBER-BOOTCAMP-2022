@@ -269,21 +269,21 @@ Now that you've set up your brand new `firewalld` installation, it's time to ver
 
 1. Name and define two ways an IDS connects to a network.
 
-   > Answer: **Network TAP (Test Access Port)**: A hardware device that provides access to a network. Network TAPs transmit both send and receive data streams on separate dedicated channels simultaneously, guaranteeing that all data arrives at the monitoring device in real time.
+   > `Network Test Access Port (TAP) - A physical hardware device that makes copies of both send and receive traffic while still allowing network traffic through uninterrupted`
 
-   > **(SPAN/Mirrored Port) SPAN Port (Switched Port Analyzer) also known as Port Mirroring** sends a mirror image of all network data to another physical port, where the packets can be captured and analyzed.
+   > `Port Mirroring (SPAN Port) - Mirrors all packet to another port to be captured & analysed.`
 
 2. Describe how an IPS connects to a network.
 
-   > Answer: Physically connects inline with the flow of data. An IPS is typically placed in between the firewall and network switch.
+   > `Inline with the flow of data, generally between the firewall and network switch`
 
 3. What type of IDS compares patterns of traffic to predefined signatures and is unable to detect Zero-Day attacks?
 
-   > Answer: Signature Based
+   > `Signature-based`
 
 4. Which type of IDS is beneficial for detecting all suspicious traffic that deviates from the well-known baseline and is excellent at detecting when an attacker probes or sweeps a network?
 
-   > Answer: Anomaly Based
+   > `Anomaly-based`
 
 #### Defense in Depth
 
@@ -291,47 +291,47 @@ Now that you've set up your brand new `firewalld` installation, it's time to ver
 
 1.  A criminal hacker tailgates an employee through an exterior door into a secured facility, explaining that they forgot their badge at home. 
 
-    > Answer: Physical
+    > `Physical`
 
 2. A zero-day goes undetected by antivirus software.
 
-    > Answer: Application
+    > `Technical-Application`
 
 3. A criminal successfully gains access to HR’s database.
 
-    > Answer: Data
+    > `Technical-Data`
 
 4. A criminal hacker exploits a vulnerability within an operating system.
 
-    > Answer: Host
+    > `Technical-Host`
 
 5. A hacktivist organization successfully performs a DDoS attack, taking down a government website.
 
-    > Answer: Network
+    > `Technical-Network`
 
 6. Data is classified at the wrong classification level.
 
-    > Answer: Policy, Procedures, and Awareness
+    > `Administration-Policies, Procedures & Awareness`
 
 7. A state sponsored hacker group successfully firewalked an organization to produce a list of active services on an email server.
     
-    > Answer: Perimeter
+    > `Technical-Perimeter`
 
 - Name one method of protecting data-at-rest from being readable on hard drive.
 
-    > Answer: Hard Drive Encryption, i.e. Bitlocker
+    > `Encryption`
 
 - Name one method to protect data-in-transit.
 
-    > Answer: VPN
+    > `VPN`
 
 - What technology could provide law enforcement with the ability to track and recover a stolen laptop.
 
-   > Answer: GPS enabled devices.
+   > `GPS & GSM Tracking`
 
 - How could you prevent an attacker from booting a stolen laptop using an external hard drive?
 
-    > Answer: Firmware Password
+    > `Set a firmware password`
 
 #### Firewall Architectures and Methodologies
 
