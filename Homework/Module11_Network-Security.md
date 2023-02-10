@@ -337,24 +337,24 @@ Now that you've set up your brand new `firewalld` installation, it's time to ver
 
 1. Which type of firewall verifies the three-way TCP handshake? TCP handshake checks are designed to ensure that session packets are from legitimate sources.
 
-   > Answer: Circuit-level Proxy or Gateway
+   > `Circuit-level Gateway`
 
 2. Which type of firewall considers the connection as a whole? Meaning, instead of looking at only individual packets, these firewalls look at whole streams of packets at one time.
 
-   > Answer: Stateful Packet Filtering Firewall
+   > `Stateful Packet Filtering`
 
 3. Which type of firewall intercepts all traffic prior to being forwarded to its final destination. In a sense, these firewalls act on behalf of the recipient by ensuring the traffic is safe prior to forwarding it?
 
-   > Answer: Application or Proxy Firewalls
+   > `Application`
 
 4. Which type of firewall examines data within a packet as it progresses through a network interface by examining source and destination IP address, port number, and packet type- all without opening the packet to inspect its contents?
 
-   > Answer: Packet-Filtering (Stateless) Firewall
+   > `Stateless`
 
 
 5. Which type of firewall filters based solely on source and destination MAC address?
 
-   > Answer: MAC Layer Firewall
+   > `MAC Layer`
 
 
 ----
