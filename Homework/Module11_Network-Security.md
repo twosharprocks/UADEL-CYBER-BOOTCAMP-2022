@@ -361,4 +361,34 @@ Now that you've set up your brand new `firewalld` installation, it's time to ver
 
 ### Bonus Lab: "Green Eggs & SPAM"
 
-- Refer to the following solution file: [Solutions: "Threat Intellegence Card"](Green_Eggs_Spam_Solution.pdf)
+Locate the indicator of attack in Sguil based off of the following:
+
+Source IP/port: 188.124.9.56:80
+Destination address/port: 192.168.3.35:1035
+Event message: ET TROJAN JS/Nemucod.M.gen downloading EXE payload
+
+Answer the following questions:
+
+1. What was the indicator of an attack? (Hint: What do the details reveal?)
+   `Sguil Red alert identifying download of EXE payload for JS-Nemucod Trojan`
+   
+2. What was the adversarial motivation (purpose of the attack)?
+   ` Financial (Info-stealing & Ransomware)`
+   
+3. Describe observations and indicators that may be related to the perpetrators of the intrusion. Categorize your insights according to the appropriate stage of the cyber kill chain, as structured in the following table:
+   
+* Reconnaissance    `Listed Email addresses`
+* Weaponization     `Neumcod Javascript downloader`
+* Delivery          `Zip file attached to spam email`
+* Exploitation      `Installs further malware`
+* Installation      `Javascript downloads executable, installs and runs through ActiveX control, before opening a dummy PDF to mislead the user`
+* Command & Control `Trojan contacts remote host davis1.ru through port 80`
+* Actions on Obj.   `Downloads and executes ransomware such as TeslaKey or Locky`
+
+4. What are your recommended mitigation strategies?
+   `Regular cybersecurity awareness training to reinforce spam identification and not opening unverified attachments`
+  
+5. List your third-party references.
+* https://www.certego.net/en/news/italian-spam-campaigns-using-js-nemucod-downloader/
+* https://www.microsoft.com/en-us/wdsi/threats/malware-encyclopedia-description?Name=TrojanDownloader:JS/Nemucod
+* https://blogs.blackberry.com/en/2018/12/cylance-vs-nemucod-trojan-downloader
