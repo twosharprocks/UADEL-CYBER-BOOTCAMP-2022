@@ -210,23 +210,17 @@ X-XSS-Protection: 1; mode=block
 
 26. What are the individual components of microservices called?
 
-    ```
-[Enter answer here]
-```
+    `Store App UI (Front-End), User API (Back-End), User Database`
 
 
 27. What is a service that writes to a database and communicates to other services?
 
-    ```
-[Enter answer here]
-```
+    `Back-End`
 
 
 28. What type of underlying technology allows for microservices to become scalable and have redundancy?
 
-    ```
-[Enter answer here]
-```
+    `Containers`
 
 
 
@@ -237,16 +231,12 @@ X-XSS-Protection: 1; mode=block
 
 29. What tool can you use to deploy multiple containers at once?
 
-    ```
-[Enter answer here]
-```
+    `Docker`
 
 
 30. What kind of file format is required to deploy a container set?
 
-    ```
-[Enter answer here]
-```
+    `YAML (.yml) configuration file`
 
 
 
