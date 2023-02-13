@@ -34,7 +34,7 @@ Review the partially reconstructed HTTP requests and responses. Answer the quest
           `OPTIONS`
 
    - **Analysis:** Do you think this HTTP request method can be used by an attacker to gather information about an HTTP server? Why or why not?
-          `Yes - it shows that the serve is responding and reflects part of the attack surface through the options listed`
+          `Yes - it shows that the server is responding and reflects part of the attack surface through the http options available`
 
 2. The system admins reported some corrupted HTTP traffic that occurred before the following recovered response:
 
@@ -59,11 +59,11 @@ Review the partially reconstructed HTTP requests and responses. Answer the quest
 
    - **Questions:** 
       - What status code was returned in this response? `401 Unauthorized`
-      - According to the response body, what kind of method was used to generate this HTTP response? `Unauthenticated user access`
+      - According to the response body, what kind of method was used to generate this HTTP response? `Unauthorized user login`
       - What sort of information was input to generate this HTTP request? `Authorisation cookie through POST`
 
    - **Analysis:** Based on the information gathered from the status code and response body, what did the attacker try to do? Were they successful? 
-      `Unsuccessful attempt to access secure site without logging in`
+      `Unsuccessful attempt to access secure site without logging in using a cross-site script cookie`
 
 3. The following HTTP request and response were also recovered:
 
@@ -95,7 +95,7 @@ Review the partially reconstructed HTTP requests and responses. Answer the quest
       - What file name was uploaded to the site, according to the request body? `cookiestealer.php`
 
    - **Analysis:** 
-      - Based on the request method and request body, what do you think happened here? `XSS.html has been replaced by javascript from external site`
+      - Based on the request method and request body, what do you think happened here? `Javascript leading to an external site has been uploaded to the server`
       - How did the server respond? `Created the cookiestealer.php file on it's database and closed the connection`
 
 4. The next partial request and header was received by our HTTP server. The data after this log was completely lost:
@@ -107,6 +107,6 @@ Review the partially reconstructed HTTP requests and responses. Answer the quest
      Cookie: $Version="1"; AUTH-COOKIE="sdf354s5c1s8e1s"; $Path="/admin"
      ```
 
-   - **Question:** Look back at the previous response (HTTP Response 3). What does the header indicate in this GET request? `cookiestealer.php was successfully uploading and used to retrieve an authorisation cookie for admin`
+   - **Question:** Look back at the previous response (HTTP Response 3). What does the header indicate in this GET request? `cookiestealer.php was successfully uploaded and used to retrieve an authorisation cookie for admin`
 
-   - **Analysis:** Is there anything interesting about the URL requested? `User was accessing the admin section of fakesite.com`
+   - **Analysis:** Is there anything interesting about the URL requested? `User was using admin's elevated priveldge to access the admin section of fakesite.com`
