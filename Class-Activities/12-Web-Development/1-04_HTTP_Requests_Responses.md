@@ -60,7 +60,7 @@ Review the partially reconstructed HTTP requests and responses. Answer the quest
    - **Questions:** 
       - What status code was returned in this response? `401 Unauthorized`
       - According to the response body, what kind of method was used to generate this HTTP response? `Unauthenticated user access`
-     - What sort of information was input to this HTTP request? `
+      - What sort of information was input to generate this HTTP request? `Authorisation cookie through POST`
 
    - **Analysis:** Based on the information gathered from the status code and response body, what did the attacker try to do? Were they successful? 
       `Unsuccessful attempt to access secure site without logging in`
@@ -95,7 +95,7 @@ Review the partially reconstructed HTTP requests and responses. Answer the quest
       - What file name was uploaded to the site, according to the request body? `cookiestealer.php`
 
    - **Analysis:** 
-      - Based on the request method and request body, what do you think happened here? `
+      - Based on the request method and request body, what do you think happened here? `XSS.html has been replaced by javascript from external site`
       - How did the server respond? `Created the cookiestealer.php file on it's database and closed the connection`
 
 4. The next partial request and header was received by our HTTP server. The data after this log was completely lost:
@@ -109,4 +109,4 @@ Review the partially reconstructed HTTP requests and responses. Answer the quest
 
    - **Question:** Look back at the previous response (HTTP Response 3). What does the header indicate in this GET request? `cookiestealer.php was successfully uploading and used to retrieve an authorisation cookie for admin`
 
-   - **Analysis:** Is there anything interesting about the URL requested? `/admin suggests it was an authorisation request for the website's admin account`
+   - **Analysis:** Is there anything interesting about the URL requested? `User was accessing the admin section of fakesite.com`
