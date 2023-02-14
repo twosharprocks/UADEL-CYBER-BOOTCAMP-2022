@@ -263,44 +263,29 @@ X-XSS-Protection: 1; mode=block
 **Question 1**: Did you see any obvious confirmation of a login? (Y/N)
 
 
-```
-[Enter answer here]
-```
+`N`
 
 
 **Question 2**: How many items exist in this file?
 
 
-```
-[Enter answer here]
-```
+`Three`
 
 
 **Question 3**: Is it obvious that you can access the dashboard? (Y/N)
 
 
-```
-[Enter answer here]
-```
+`Y`
 
 
 **Question 4**: Look through the output where `Dashboard` is highlighted. Does any of the wording on this page seem familiar? (Y/N) If so, you should be successfully logged in to your Editor's dashboard.
 
 
-```
-[Enter answer here]
-```
+`Y`
 
 
 **Question 5**: What happens this time?
 
-  <tr>
-   <td>
 
-```
-[Enter answer here]
-```
+`The body of the html provides the wp-die-message which says “You need a higher level of permission.” followed by “Sorry, you are not allowed to list users.”`
 
-
-   </td>
-  </tr>
