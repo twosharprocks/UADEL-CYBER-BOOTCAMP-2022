@@ -65,17 +65,17 @@ Make a copy of this document to work in, and then respond to each question below
 
 11. Which `curl` option changes the request method?
 
-    `-X`
+`-X`
 
 
 12.  Which `curl` option sets request headers?
 
-    `-H`
+`-H`
 
 
 13.  Which `curl` option is used to view the response header?
 
-    `-v`
+`-v`
 
 
 14. Which request method might an attacker use to figure out what HTTP requests an HTTP server will accept?
@@ -91,23 +91,19 @@ Make a copy of this document to work in, and then respond to each question below
 
 15.  Which response header sends a cookie to the client?
 
-    ```
-HTTP/1.1 200 OK
-Content-type: text/html
-Set-Cookie: cart=Bob
-```
+    `HTTP/1.1 200 OK`
+    `Content-type: text/html`
+    `Set-Cookie: cart=Bob`
 
-`“Set-Cookie” header sends a cookie to the client`
+Answer `“Set-Cookie” header sends a cookie to the client`
 
 16.  Which request header will continue the client's session?
 
-    ```
-GET /cart HTTP/1.1
-Host: www.example.org
-Cookie: cart=Bob
-```
+    `GET /cart HTTP/1.1`
+    `Host: www.example.org`
+    `Cookie: cart=Bob`
 
-`“Cookie: cart=Bob” maintains the client’s session`
+Answer `“Cookie: cart=Bob” maintains the client’s session`
 
 
 ### Example HTTP Requests and Responses
@@ -247,23 +243,17 @@ X-XSS-Protection: 1; mode=block
 
 31. Which type of SQL query would you use to view all of the information within a table called `customers`?
 
-    ```
-[Enter answer here]
-```
+    `SELECT * FROM customers`
 
 
 32. Which type of SQL query would you use to enter new data into a table? (You don't need a full query, just the first part of the statement.)
 
-    ```
-[Enter answer here]
-```
+    `INSERT INTO table_name (Column1, Column 2, ect) VALUES (value1, value2, ect)`
 
 
 33.  Why would you never run `DELETE FROM &lt;table-name>;` by itself?
 
-    ```
-[Enter answer here]
-```
+    `It would delete the entire table as there is no WHERE statement`
 
 
 
