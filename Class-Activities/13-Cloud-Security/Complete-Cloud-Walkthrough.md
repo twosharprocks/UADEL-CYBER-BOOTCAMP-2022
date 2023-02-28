@@ -1004,5 +1004,3 @@ To complete this activity, you had to install a load balancer in front of the VM
 
 Congratulations! You have created a highly available web server for XCorp's Red Team to use for testing and training.
 
----
-© 2020 Trilogy Education Services, a 2U, Inc. brand. All Rights Reserved.
