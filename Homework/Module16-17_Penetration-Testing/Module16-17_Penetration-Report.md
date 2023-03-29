@@ -187,29 +187,19 @@ Informational:    No threat; however, it is data that may be used in a future at
 
 As the following grid shows, each threat is assessed in terms of both its potential impact on the business and the likelihood of exploitation:
 
-![risk-matrix](
-<p id="gdcalert1" ><span style="color: red; font-weight: bold">>>>>>  gd2md-html alert: inline image link here (to images/image1.png). Store image on your image server and adjust path/filename/extension if necessary. </span><br>(<a href="#">Back to top</a>)(<a href="#gdcalert2">Next alert</a>)<br><span style="color: red; font-weight: bold">>>>>> </span></p>
-
-
-![alt_text](images/image1.png "image_tooltip")
-
+![risk-matrix](https://github.com/twosharprocks/UADEL-CYBER-BOOTCAMP-2022/blob/main/Homework/Module16-17_Penetration-Testing/Images/Risk-Matrix.jpg?raw=true)
 
 
 ### Summary of Strengths
 
 While the assessment team was successful in finding several vulnerabilities, the team also recognized several strengths within MegaCorpOne’s environment. These positives highlight the effective countermeasures and defenses that successfully prevented, detected, or denied an attack technique or tactic from occurring. 
 
-
-
 * Domain Controllers restricted to Network Administrator
 * Passwords managed and stored as hashes 
-
 
 ### Summary of Weaknesses
 
 TSR successfully found several critical vulnerabilities that should be immediately addressed in order to prevent an adversary from compromising the network. These findings are not specific to a software version but are more general and systemic vulnerabilities.
-
-
 
 * Common use of weak passwords and password reuse by both administrators and users
 * Administrator and user credentials shared in clear text files
@@ -220,272 +210,110 @@ TSR successfully found several critical vulnerabilities that should be immediate
 
 Initial reconnaissance of megacorpone.com using recon-ng provided a list of active sub-domains and their ip addresses (T1595: Active Scanning). 
 
-
-
-<p id="gdcalert2" ><span style="color: red; font-weight: bold">>>>>>  gd2md-html alert: inline image link here (to images/image2.jpg). Store image on your image server and adjust path/filename/extension if necessary. </span><br>(<a href="#">Back to top</a>)(<a href="#gdcalert3">Next alert</a>)<br><span style="color: red; font-weight: bold">>>>>> </span></p>
-
-
-![alt_text](images/image2.jpg "image_tooltip")
-
-
+![recon-ng](https://github.com/twosharprocks/UADEL-CYBER-BOOTCAMP-2022/blob/main/Homework/Module16-17_Penetration-Testing/Images/recon-vpn.jpg?raw=true)
 Image 1.1 - Recon-ng results for megacorpone.com (vpn.megacorpone.com highlighted in red)
 
 From this list, **vpn.megacorpone.com** was identified as a strong candidate for initial access. Potential employee usernames had been collected through OSINT (T1589.003: Employee Names) and simple password guessing was attempted on the vpn.megacorpone.com login prompt (T1078: Valid Accounts).
 
 
-
-<p id="gdcalert3" ><span style="color: red; font-weight: bold">>>>>>  gd2md-html alert: inline image link here (to images/image3.jpg). Store image on your image server and adjust path/filename/extension if necessary. </span><br>(<a href="#">Back to top</a>)(<a href="#gdcalert4">Next alert</a>)<br><span style="color: red; font-weight: bold">>>>>> </span></p>
-
-
-![alt_text](images/image3.jpg "image_tooltip")
-
-
+![VPN-login](https://github.com/twosharprocks/UADEL-CYBER-BOOTCAMP-2022/blob/main/Homework/Module16-17_Penetration-Testing/Images/A1-password%20guess.jpg?raw=true)<br>
 Image 1.2 - Attempting login through vpn.megacorpone.com (user ‘thudson’ password ‘thudson’)
 
-
-
-<p id="gdcalert4" ><span style="color: red; font-weight: bold">>>>>>  gd2md-html alert: inline image link here (to images/image4.jpg). Store image on your image server and adjust path/filename/extension if necessary. </span><br>(<a href="#">Back to top</a>)(<a href="#gdcalert5">Next alert</a>)<br><span style="color: red; font-weight: bold">>>>>> </span></p>
-
-
-![alt_text](images/image4.jpg "image_tooltip")
-
-
+![VPN-Success](https://github.com/twosharprocks/UADEL-CYBER-BOOTCAMP-2022/blob/main/Homework/Module16-17_Penetration-Testing/Images/A1-password%20guess2.jpg?raw=true)<br>
 Image 1.3 - Successful login to vpn.megacorpone.com with ‘thudson:thudson’ 
 
 Initial access was initially achieved through successfully guessing user ‘thudson’ was using weak password ‘thudson’ (T1110.001: Password Guessing). Access to vpn.megacorpone.com listed three files (Image 1.3), including a password list (password.lst) and a script (vpn.sh). Inspection of vpn.sh provided usernames and passwords to four additional users (T1087: Account Discovery).
 
-
-
-<p id="gdcalert5" ><span style="color: red; font-weight: bold">>>>>>  gd2md-html alert: inline image link here (to images/image5.jpg). Store image on your image server and adjust path/filename/extension if necessary. </span><br>(<a href="#">Back to top</a>)(<a href="#gdcalert6">Next alert</a>)<br><span style="color: red; font-weight: bold">>>>>> </span></p>
-
-
-![alt_text](images/image5.jpg "image_tooltip")
-
-
+![VPN-Script](https://github.com/twosharprocks/UADEL-CYBER-BOOTCAMP-2022/blob/main/Homework/Module16-17_Penetration-Testing/Images/A1-password%20guess3.jpg?raw=true)<br>
 Image 1.4 - Contents of vpn.sh showing usernames & passwords
 
 Running Nmap and ZenMap against 172.22.117.100/16, two hosts (T1018: Remote System Discovery) were identified:
-
-
-
 * 172.22.117.100 (Kali Linux - penetration tester’s machine)
 * 172.22.117.150 (Metasploitable - Linux 2.6.9 machine, potential domain server)
 
 Port scanning 172.22.117.150 revealed numerous open ports, the system OS, and an exploitable vulnerability in vsftpd 2.3.4 on port 21 (T1082: System Information Discovery).
-
-
-
-<p id="gdcalert6" ><span style="color: red; font-weight: bold">>>>>>  gd2md-html alert: inline image link here (to images/image6.jpg). Store image on your image server and adjust path/filename/extension if necessary. </span><br>(<a href="#">Back to top</a>)(<a href="#gdcalert7">Next alert</a>)<br><span style="color: red; font-weight: bold">>>>>> </span></p>
-
-
-![alt_text](images/image6.jpg "image_tooltip")
-
-
+![zenmap-with-vuln](https://github.com/twosharprocks/UADEL-CYBER-BOOTCAMP-2022/blob/main/Homework/Module16-17_Penetration-Testing/Images/2-nmap-vuln.jpg?raw=true)<br>
 Image 2.1 - Zenmap scan against 172.22.117.150 with system name, OS, and vsftpd 2.3.4 backdoor
 
 Executing the vsftpd 2.3.4 backdoor exploit (aka “49757.py”) against 172.22.117.150 provides shell access as the root user (T1059: Command and Scripting Interpreter), and allows for the display of password hashes for the machine’s users (T1033: System Owner/User Discovery).
-
-
-
-<p id="gdcalert7" ><span style="color: red; font-weight: bold">>>>>>  gd2md-html alert: inline image link here (to images/image7.jpg). Store image on your image server and adjust path/filename/extension if necessary. </span><br>(<a href="#">Back to top</a>)(<a href="#gdcalert8">Next alert</a>)<br><span style="color: red; font-weight: bold">>>>>> </span></p>
-
-
-![alt_text](images/image7.jpg "image_tooltip")
-
-
+![vsftpd-exploit](https://github.com/twosharprocks/UADEL-CYBER-BOOTCAMP-2022/blob/main/Homework/Module16-17_Penetration-Testing/Images/2-exploit.jpg?raw=true)<br>
 Image 2.2 - Exploitation of vsftpd 2.3.4 backdoor for root access & password hashes 
 
 Cracking the password hashes in John the Ripper (T1110.002: Password Cracking) with the passwords.lst wordlist from vpn.megacorpone.com produced the passwords for seven users.
 
-
-
-<p id="gdcalert8" ><span style="color: red; font-weight: bold">>>>>>  gd2md-html alert: inline image link here (to images/image8.jpg). Store image on your image server and adjust path/filename/extension if necessary. </span><br>(<a href="#">Back to top</a>)(<a href="#gdcalert9">Next alert</a>)<br><span style="color: red; font-weight: bold">>>>>> </span></p>
-
-
-![alt_text](images/image8.jpg "image_tooltip")
-
-
+![linux-hashes](https://github.com/twosharprocks/UADEL-CYBER-BOOTCAMP-2022/blob/main/Homework/Module16-17_Penetration-Testing/Images/2-hashes.jpg?raw=true)<br>
 Image 2.3 - Passwords for sys, klog, msfadmin, postgres, user, service, and tstark.
 
 Knowing “metasploitable” operates on a linux OS, the distcc_exec exploit was tested and proven to provide low-level system daemon access to 172.22.117.150 by binding it to the penetration tester’s host through a reverse shell (T1210: Exploitation of Remote Services).
 
-
-
-<p id="gdcalert9" ><span style="color: red; font-weight: bold">>>>>>  gd2md-html alert: inline image link here (to images/image9.jpg). Store image on your image server and adjust path/filename/extension if necessary. </span><br>(<a href="#">Back to top</a>)(<a href="#gdcalert10">Next alert</a>)<br><span style="color: red; font-weight: bold">>>>>> </span></p>
-
-
-![alt_text](images/image9.jpg "image_tooltip")
-
-
+![distcc-exploit](https://github.com/twosharprocks/UADEL-CYBER-BOOTCAMP-2022/blob/main/Homework/Module16-17_Penetration-Testing/Images/3-daemon_access.jpg?raw=true)<br>
 Image 3.1 - Using distcc_exec exploit to gain system daemon access to 172.22.117.150
 
 This low-level daemon access was leveraged to locate and view numerous usernames and passwords stored in plain-text on the host (T1552.001: Credentials in Files), including the admin credentials for 172.22.117.150 which were previously cracked from hashes.
 
-
-
-<p id="gdcalert10" ><span style="color: red; font-weight: bold">>>>>>  gd2md-html alert: inline image link here (to images/image10.jpg). Store image on your image server and adjust path/filename/extension if necessary. </span><br>(<a href="#">Back to top</a>)(<a href="#gdcalert11">Next alert</a>)<br><span style="color: red; font-weight: bold">>>>>> </span></p>
-
-
-![alt_text](images/image10.jpg "image_tooltip")
-
-
-Image 3.2 - Locating .txt files which include “password” in the name 
-
-and displaying the contents of “adminpassword.txt”
-
-
+![locate](https://github.com/twosharprocks/UADEL-CYBER-BOOTCAMP-2022/blob/main/Homework/Module16-17_Penetration-Testing/Images/3-daemon_search.jpg?raw=true)<br>
+Image 3.2 - Locating .txt files which include “password” in the name and displaying the contents of “adminpassword.txt”
 
 It was then possible to login to 172.22.117.150 with administrator rights using the “msfadmin:cybersecurity” credentials (T1078.003: Local Accounts).
 
-
-
-<p id="gdcalert11" ><span style="color: red; font-weight: bold">>>>>>  gd2md-html alert: inline image link here (to images/image11.jpg). Store image on your image server and adjust path/filename/extension if necessary. </span><br>(<a href="#">Back to top</a>)(<a href="#gdcalert12">Next alert</a>)<br><span style="color: red; font-weight: bold">>>>>> </span></p>
-
-
-![alt_text](images/image11.jpg "image_tooltip")
-
-
+![msfadmin](https://github.com/twosharprocks/UADEL-CYBER-BOOTCAMP-2022/blob/main/Homework/Module16-17_Penetration-Testing/Images/3-login.jpg?raw=true)<br>
 Image 3.3 - Logging into 172.22.117.150 using administrator credentials
 
 This administrator login allowed modification to the sshd_config file and open port 10022 for SSH (T1021.004), and the addition of user “systemd-ssh” (T1136: Create Account) in order to establish backdoor access and provide greater persistence in the system should defensive action be taken to secure 172.22.117.150.
 
+![users](https://github.com/twosharprocks/UADEL-CYBER-BOOTCAMP-2022/blob/main/Homework/Module16-17_Penetration-Testing/Images/4-elevate.jpg?raw=true)<br>
+Image 4.1 - Display of users on 172.22.117.150 including new user “systemd-ssh”, followed by user’s elevation to sudo-ers group, and modification of sshd_config.
 
-
-<p id="gdcalert12" ><span style="color: red; font-weight: bold">>>>>>  gd2md-html alert: inline image link here (to images/image12.jpg). Store image on your image server and adjust path/filename/extension if necessary. </span><br>(<a href="#">Back to top</a>)(<a href="#gdcalert13">Next alert</a>)<br><span style="color: red; font-weight: bold">>>>>> </span></p>
-
-
-![alt_text](images/image12.jpg "image_tooltip")
-
-
-Image 4.1 - Display of users on 172.22.117.150 including new user “systemd-ssh”, 
-
-followed by user’s elevation to sudo-ers group, and modification of sshd_config.
-
-
-
-<p id="gdcalert13" ><span style="color: red; font-weight: bold">>>>>>  gd2md-html alert: inline image link here (to images/image13.jpg). Store image on your image server and adjust path/filename/extension if necessary. </span><br>(<a href="#">Back to top</a>)(<a href="#gdcalert14">Next alert</a>)<br><span style="color: red; font-weight: bold">>>>>> </span></p>
-
-
-![alt_text](images/image13.jpg "image_tooltip")
-
-
+![sshd-mod](https://github.com/twosharprocks/UADEL-CYBER-BOOTCAMP-2022/blob/main/Homework/Module16-17_Penetration-Testing/Images/4-ports.jpg?raw=true)<br>
 Image 4.2 - Modification of sshd_config to open port 10022 to support persistent access
-
-
 
 Having compromised the Linux host at 172.22.117.100, an Nmap scan was performed on a second network to identify Windows hosts (T1595: Active Scanning).
 
-
-
-<p id="gdcalert14" ><span style="color: red; font-weight: bold">>>>>>  gd2md-html alert: inline image link here (to images/image14.jpg). Store image on your image server and adjust path/filename/extension if necessary. </span><br>(<a href="#">Back to top</a>)(<a href="#gdcalert15">Next alert</a>)<br><span style="color: red; font-weight: bold">>>>>> </span></p>
-
-
-![alt_text](images/image14.jpg "image_tooltip")
-
-
+![nmap-windows](https://github.com/twosharprocks/UADEL-CYBER-BOOTCAMP-2022/blob/main/Homework/Module16-17_Penetration-Testing/Images/windowsportscanning.jpg?raw=true)<br>
 Image 5.1 - Nmap scan of 172.22.117.100/24 showing two Windows hosts (172.22.117.10 & .20)
 
 Using the nmap results we identified two Windows hosts with a range of open ports:
-
-
-
 * 172.22.117.10 - Windows Domain Controller, with port 88 open for Kerberos
 * 172.22.117.20 - Windows Host, with port 3390 open for Windows Terminal Services
 
 To establish persistence, a reverse_tcp payload (shell.exe) was delivered via meterpreter to C:\ of the ‘tstark’ user on domain controller 172.22.117.10  (T1105: Ingress Tool Transfer). 
 
-
-
-<p id="gdcalert15" ><span style="color: red; font-weight: bold">>>>>>  gd2md-html alert: inline image link here (to images/image15.jpg). Store image on your image server and adjust path/filename/extension if necessary. </span><br>(<a href="#">Back to top</a>)(<a href="#gdcalert16">Next alert</a>)<br><span style="color: red; font-weight: bold">>>>>> </span></p>
-
-
-![alt_text](images/image15.jpg "image_tooltip")
-
-
+![msfvenom](https://github.com/twosharprocks/UADEL-CYBER-BOOTCAMP-2022/blob/main/Homework/Module16-17_Penetration-Testing/Images/5-payloadandstarksmb.jpg?raw=true)<br>
 Image 5.2 - Payload delivery via msfvenom, and login to tstark to show shell.exe in C:\
 
 The command to execute the payload was performed via meterpreter by establishing an active session through the SMB Client, then delivering a wmiexec command to execute the shell.exe payload (T1059: Command and Scripting Interpreter).
 
-
-
-<p id="gdcalert16" ><span style="color: red; font-weight: bold">>>>>>  gd2md-html alert: inline image link here (to images/image16.jpg). Store image on your image server and adjust path/filename/extension if necessary. </span><br>(<a href="#">Back to top</a>)(<a href="#gdcalert17">Next alert</a>)<br><span style="color: red; font-weight: bold">>>>>> </span></p>
-
-
-![alt_text](images/image16.jpg "image_tooltip")
-
-
+![meterpreter](https://github.com/twosharprocks/UADEL-CYBER-BOOTCAMP-2022/blob/main/Homework/Module16-17_Penetration-Testing/Images/5-meterpreter.jpg?raw=true)<br>
 Image 5.3 - Establishing a meterpreter session to deliver the command to execute shell.com in C:\
 
 To further establish persistence in the event shell.exe is identified and removed, meterpreter’s windows persistence service was also used to establish system process (LjUhES.exe) in tstark’s account that creates a reverse tcp session to the attacking machine (T1055.002: Portable Executable Injection). 
 
-
-
-<p id="gdcalert17" ><span style="color: red; font-weight: bold">>>>>>  gd2md-html alert: inline image link here (to images/image17.jpg). Store image on your image server and adjust path/filename/extension if necessary. </span><br>(<a href="#">Back to top</a>)(<a href="#gdcalert18">Next alert</a>)<br><span style="color: red; font-weight: bold">>>>>> </span></p>
-
-
-![alt_text](images/image17.jpg "image_tooltip")
-
-
+![persist](https://github.com/twosharprocks/UADEL-CYBER-BOOTCAMP-2022/blob/main/Homework/Module16-17_Penetration-Testing/Images/6-windowspersist.jpg?raw=true)<br>
 Image 5.4 - Implanting a persistence service to maintain a reverse tcp process 
 
 To protect this backdoor and maintain persistence, LjUhES.exe was added to the Windows Task Scheduler as “Backup” to run at midnight each night (T1053.005: Scheduled Task).
 
-
-
-<p id="gdcalert18" ><span style="color: red; font-weight: bold">>>>>>  gd2md-html alert: inline image link here (to images/image18.jpg). Store image on your image server and adjust path/filename/extension if necessary. </span><br>(<a href="#">Back to top</a>)(<a href="#gdcalert19">Next alert</a>)<br><span style="color: red; font-weight: bold">>>>>> </span></p>
-
-
-![alt_text](images/image18.jpg "image_tooltip")
-
-
+![task-scheduler](https://github.com/twosharprocks/UADEL-CYBER-BOOTCAMP-2022/blob/main/Homework/Module16-17_Penetration-Testing/Images/8-scheduler.jpg?raw=true)<br>
 Image 5.5 - Using a shell to 172.22.117.20 through ‘tstark’ to create a scheduled daily task that runs the implanted executable to re-establish the reverse TCP session
 
 With a persistent backdoor established through the ‘tstark’ user, the kiwi module (aka Mimikatz) of meterpreter was then used to dump cached domain credentials (T1003.005: Cached Domain Credentials) from 172.22.117.20.
 
-
-
-<p id="gdcalert19" ><span style="color: red; font-weight: bold">>>>>>  gd2md-html alert: inline image link here (to images/image19.jpg). Store image on your image server and adjust path/filename/extension if necessary. </span><br>(<a href="#">Back to top</a>)(<a href="#gdcalert20">Next alert</a>)<br><span style="color: red; font-weight: bold">>>>>> </span></p>
-
-
-![alt_text](images/image19.jpg "image_tooltip")
-
-
+![LSA-dump](https://github.com/twosharprocks/UADEL-CYBER-BOOTCAMP-2022/blob/main/Homework/Module16-17_Penetration-Testing/Images/cred-dump.jpg?raw=true)<br>
 Image 6.1 - Using Mimikatz to dump the LSA cache and reveal usernames & password hashes
 
 Using John to once again to crack the retrieved hashes (T1110.002: Password Cracking), the passwords for bbanner and pparker were determined. Using the bbanner user credentials, lateral movement from 172.22.117.20 to the Domain Controller (172.22.117.10) was then successfully achieved through the use of the wmi exploit (T1210: Exploitation of Remote Services).
 
-
-
-<p id="gdcalert20" ><span style="color: red; font-weight: bold">>>>>>  gd2md-html alert: inline image link here (to images/image20.jpg). Store image on your image server and adjust path/filename/extension if necessary. </span><br>(<a href="#">Back to top</a>)(<a href="#gdcalert21">Next alert</a>)<br><span style="color: red; font-weight: bold">>>>>> </span></p>
-
-
-![alt_text](images/image20.jpg "image_tooltip")
-
-
+![lateral](https://github.com/twosharprocks/UADEL-CYBER-BOOTCAMP-2022/blob/main/Homework/Module16-17_Penetration-Testing/Images/lateral.jpg?raw=true)<br>
 Image 6.2 - Moving laterally from 172.22.117.20 to 172.22.117.10 and displaying system information
 
 With administrator access to 172.22.117.10 (the Domain Controller) through a meterpreter session, a shell was created and the user accounts for the rest of the network were displayed.
 
-
-
-<p id="gdcalert21" ><span style="color: red; font-weight: bold">>>>>>  gd2md-html alert: inline image link here (to images/image21.jpg). Store image on your image server and adjust path/filename/extension if necessary. </span><br>(<a href="#">Back to top</a>)(<a href="#gdcalert22">Next alert</a>)<br><span style="color: red; font-weight: bold">>>>>> </span></p>
-
-
-![alt_text](images/image21.jpg "image_tooltip")
-
-
+![dcusers](https://github.com/twosharprocks/UADEL-CYBER-BOOTCAMP-2022/blob/main/Homework/Module16-17_Penetration-Testing/Images/users.jpg?raw=true)<br>
 Image 6.3 - Shell creation and listing of network user accounts
 
 With a list of usernames from the Domain Controller, it was then possible to use the kiwi module (Mimikatz) to perform a DCSync attack to dump each user’s credentials (T1003.006: DCSYnc).
 
-
-
-<p id="gdcalert22" ><span style="color: red; font-weight: bold">>>>>>  gd2md-html alert: inline image link here (to images/image22.jpg). Store image on your image server and adjust path/filename/extension if necessary. </span><br>(<a href="#">Back to top</a>)(<a href="#gdcalert23">Next alert</a>)<br><span style="color: red; font-weight: bold">>>>>> </span></p>
-
-
-![alt_text](images/image22.jpg "image_tooltip")
-
-
+![DCSync](https://github.com/twosharprocks/UADEL-CYBER-BOOTCAMP-2022/blob/main/Homework/Module16-17_Penetration-Testing/Images/userhashes.jpg?raw=true)<br>
 Image 6.4 - Dumping user password hashes from the Domain Controller
 
 
@@ -766,10 +594,11 @@ The Windows Host (172.22.117.20) and the Domain Controller (172.22.117.10) have 
 
 The following completed MITRE ATT&CK navigator map shows all of the techniques and tactics that TSR used throughout the assessment.
 
+![Navigator](https://github.com/twosharprocks/UADEL-CYBER-BOOTCAMP-2022/blob/1a43d8656b609025344f06258e9f52834529864a/Homework/Module16-17_Penetration-Testing/Images/MegaCorpOne%20-%20MitreAttack.svg)
 
 Legend:
 
 * Yellow = Performed successfully
 * Red = Failure to perform
 
-A complete version of this MITRE ATT&CK Navigator Map is [available as a JSON](https://drive.google.com/file/d/1f-KErbE0lJpDWE19YCCo1FssO0vFJdrm/view?usp=sharing) or as a [standalone SVG](https://drive.google.com/file/d/13NXn8TY5XdXbM7pQLVlaEwfWPq4s50lR/view?usp=sharing).
+A complete version of this MITRE ATT&CK Navigator Map is [available as a JSON](https://github.com/twosharprocks/UADEL-CYBER-BOOTCAMP-2022/blob/1a43d8656b609025344f06258e9f52834529864a/Homework/Module16-17_Penetration-Testing/Images/MegaCorpOne%20-%20MitreAttack.json) or as a [standalone SVG](https://github.com/twosharprocks/UADEL-CYBER-BOOTCAMP-2022/blob/1a43d8656b609025344f06258e9f52834529864a/Homework/Module16-17_Penetration-Testing/Images/MegaCorpOne%20-%20MitreAttack.svg).
