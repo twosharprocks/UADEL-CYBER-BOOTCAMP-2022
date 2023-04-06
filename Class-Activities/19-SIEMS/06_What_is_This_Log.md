@@ -19,4 +19,10 @@ You are a recently hired SOC manager at OMP.
 
 3. Provide a brief summary of the security events that each log file identifies.
 
+` Log1 - FORTIGUARD Log, identifying a Denial-of-Service attack against the Oracle 9i TNS Listener`
+` Log2 - Linux Logs, with user changing user groups`
+` Log3 - Web Application logs showing GET requests`
+` Log4 - Windows security logs, with user creation and process execution`
+` Log5 - Online Shopping cart contents log`
+
 ---
