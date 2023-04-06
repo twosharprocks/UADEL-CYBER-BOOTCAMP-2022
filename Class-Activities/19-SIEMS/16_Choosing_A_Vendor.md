@@ -14,7 +14,7 @@ The CIO at OMP would like you, the SOC manager, to select a SIEM product vendor.
     - RSA NetWitness
     - AlienVault USM
     - ELK
-    - IBM Security QRadar
+    - `IBM Security QRadar`
     - MicroFocus ArcSight ESM
     - McAfee Enterprise Security Manager
     - LogRythm 
@@ -24,9 +24,9 @@ The CIO at OMP would like you, the SOC manager, to select a SIEM product vendor.
 
     
 2. Answer the following questions about your SIEM vendor selection. Use Google if necessary. 
-   - What is the name of the SIEM product you selected?
-   - What is the name of the SIEM vendor organization?
-   - What are the features of this SIEM?
-   - What are the primary advantages of this SIEM?
+   - What is the name of the SIEM product you selected? `IBM Security QRadar`
+   - What is the name of the SIEM vendor organization? `IBM`
+   - What are the features of this SIEM? `Built-in support for threat intelligence feeds, enables users to generate custom reports to track specific security metrics`
+   - What are the primary advantages of this SIEM? `Excellent software company reputation (eg. vs SolarWinds or McAfee), wide-ranging and well-developed features`
 
 ---
