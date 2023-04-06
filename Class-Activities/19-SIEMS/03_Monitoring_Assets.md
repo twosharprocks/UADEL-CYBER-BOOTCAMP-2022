@@ -26,20 +26,20 @@ In this activity, you will play the role of a newly hired SOC manager at Omni Me
 
 ### OMP Security Events
 
-  A. ____ An employee in the Omaha office recently downloaded ransomware from a phishing email onto their work laptop.
+  A. ____ An employee in the Omaha office recently downloaded ransomware from a phishing email onto their work laptop. `1 - Potential to spread through entire network`
 
-  B. ____ The primary web server in the New York office briefly experienced an outage due to a DDOS attack.
+  B. ____ The primary web server in the New York office briefly experienced an outage due to a DDOS attack. `6 - Loss of availability`
 
-  C. ____ The administrative application website occasionally experiences brute force attacks.
+  C. ____ The administrative application website occasionally experiences brute force attacks. `4 - Potential to take admin application offline`
 
-  D. ____ Vendors were inadvertently provided physical access to the data center in the Atlanta office.
+  D. ____ Vendors were inadvertently provided physical access to the data center in the Atlanta office. `5 - Risk but Trusted relationship`
 
-  E. ____ A terminated employee was not removed from the active directory and has continued to log into their account.
+  E. ____ A terminated employee was not removed from the active directory and has continued to log into their account. `3 - Ongoing and potentially malicious Insider Threat`
 
-  F. ____ SQL injection attacks were attempted on the primary purchasing web application.
+  F. ____ SQL injection attacks were attempted on the primary purchasing web application. `7 - Relatively safe unless successful`
 
-  G. ____ Last month, an inventory database audit log ran out of disk space and stopped writing.
+  G. ____ Last month, an inventory database audit log ran out of disk space and stopped writing. `8 - Potential to backup`
 
-  H. ____ In the last several weeks, the VPN logs showed a source IP coming from Asia, where no employees are located.
+  H. ____ In the last several weeks, the VPN logs showed a source IP coming from Asia, where no employees are located. `2 - Potential ongoing breach`
 
 ---
