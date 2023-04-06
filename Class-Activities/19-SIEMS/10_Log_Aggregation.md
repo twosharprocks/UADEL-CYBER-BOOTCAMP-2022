@@ -23,6 +23,7 @@ Identify the various fields from each log record. The fields include:
 **Hint:**  Use Google to research the fields you aren't familiar with.
 
 `Standardise to JSON`
+
 `Log Record 1`
 {
     "timestamp": "2015-05-17T10:05:12Z",
@@ -58,4 +59,5 @@ Identify the various fields from each log record. The fields include:
     "user_agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/32.0.234344.77 Safari/537.36",
     "ip_address": "35.19.88.100"
 }
+
 ---
