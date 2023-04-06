@@ -454,11 +454,7 @@ Image 1-7.3 - Using directory traversal to display disclaimer_1.txt and flag 15
 The second day of the penetration test began with OSINT reconnaissance to support system scanning and eventual access. Performing a WHOIS domain lookup with “who.is” on the public-facing “totalrekall.xyz” domain name returned registrar data that included sensitive information including an ssh username and “flag1”.
 
 
-
-<p id="gdcalert34" ><span style="color: red; font-weight: bold">>>>>>  gd2md-html alert: inline image link here (to images/image34.jpg). Store image on your image server and adjust path/filename/extension if necessary. </span><br>(<a href="#">Back to top</a>)(<a href="#gdcalert35">Next alert</a>)<br><span style="color: red; font-weight: bold">>>>>> </span></p>
-
-
-![alt_text](images/image34.jpg "image_tooltip")
+![alt_text](https://github.com/twosharprocks/UADEL-CYBER-BOOTCAMP-2022/blob/main/Homework/Module18_Project2/Images-Day2/flag1-whoisregistrar.jpg)
 
 
 Image 2-1.1 - Public registrar data on totalrekall.xyz showing ssh user “alice” and flag 1
@@ -466,11 +462,7 @@ Image 2-1.1 - Public registrar data on totalrekall.xyz showing ssh user “alice
 Performing a similar lookup for IP address information on “totalrekall.xyz” using “iplocation.io” returned an IPv4 address (34.102.136.180 aka “flag 2”) as well as the ISP and an approximate location for the data centre (T1590.001 Gather Victim Network Information - IP Addresses).
 
 
-
-<p id="gdcalert35" ><span style="color: red; font-weight: bold">>>>>>  gd2md-html alert: inline image link here (to images/image35.jpg). Store image on your image server and adjust path/filename/extension if necessary. </span><br>(<a href="#">Back to top</a>)(<a href="#gdcalert36">Next alert</a>)<br><span style="color: red; font-weight: bold">>>>>> </span></p>
-
-
-![alt_text](images/image35.jpg "image_tooltip")
+![alt_text](https://github.com/twosharprocks/UADEL-CYBER-BOOTCAMP-2022/blob/main/Homework/Module18_Project2/Images-Day2/flag2-iplookup.jpg)
 
 
 Image 2-1.2 - Public IP address and lookup data for totalrekall.xyz
@@ -478,11 +470,7 @@ Image 2-1.2 - Public IP address and lookup data for totalrekall.xyz
 An SSL certificate search was also performed through “crt.sh” on “totalrekall.xyz” to identify sensitive data and identify “flag 3”
 
 
-
-<p id="gdcalert36" ><span style="color: red; font-weight: bold">>>>>>  gd2md-html alert: inline image link here (to images/image36.jpg). Store image on your image server and adjust path/filename/extension if necessary. </span><br>(<a href="#">Back to top</a>)(<a href="#gdcalert37">Next alert</a>)<br><span style="color: red; font-weight: bold">>>>>> </span></p>
-
-
-![alt_text](images/image36.jpg "image_tooltip")
+![alt_text](https://github.com/twosharprocks/UADEL-CYBER-BOOTCAMP-2022/blob/main/Homework/Module18_Project2/Images-Day2/flag3-sslcert.jpg)
 
 
 Image 2-1.3 - Public SSL certificate lookup on totalrekall.xyz revealing flag 3
@@ -490,11 +478,7 @@ Image 2-1.3 - Public SSL certificate lookup on totalrekall.xyz revealing flag 3
 With this OSINT collected, a Nmap scan of the 192.168.13.0/24 subnet was performed to identify available hosts and open ports on the Rekall internal network. This initial scan returned a total of 6 hosts, with 5 hosts belonging to Rekall’s internal network (192.168.13.10-14) and the 6th (192.168.13.1) belonging to the penetration tester.
 
 
-
-<p id="gdcalert37" ><span style="color: red; font-weight: bold">>>>>>  gd2md-html alert: inline image link here (to images/image37.jpg). Store image on your image server and adjust path/filename/extension if necessary. </span><br>(<a href="#">Back to top</a>)(<a href="#gdcalert38">Next alert</a>)<br><span style="color: red; font-weight: bold">>>>>> </span></p>
-
-
-![alt_text](images/image37.jpg "image_tooltip")
+![alt_text](https://github.com/twosharprocks/UADEL-CYBER-BOOTCAMP-2022/blob/main/Homework/Module18_Project2/Images-Day2/flag4-nmap.jpg)
 
 
 Image 2-2.1 - Nmap scan of 192.168.13.0/24 revealing 5 Rekall hosts (192.168.13.10-14)
@@ -502,11 +486,7 @@ Image 2-2.1 - Nmap scan of 192.168.13.0/24 revealing 5 Rekall hosts (192.168.13.
 This initial Nmap scan only provided limited information on the host operating system, so it was repeated in a more aggressive mode to provide additional host information and potentially identify vulnerabilities for exploitation.
 
 
-
-<p id="gdcalert38" ><span style="color: red; font-weight: bold">>>>>>  gd2md-html alert: inline image link here (to images/image38.jpg). Store image on your image server and adjust path/filename/extension if necessary. </span><br>(<a href="#">Back to top</a>)(<a href="#gdcalert39">Next alert</a>)<br><span style="color: red; font-weight: bold">>>>>> </span></p>
-
-
-![alt_text](images/image38.jpg "image_tooltip")
+![alt_text](https://github.com/twosharprocks/UADEL-CYBER-BOOTCAMP-2022/blob/main/Homework/Module18_Project2/Images-Day2/flag5-nmap-aggressive.jpg)
 
 
 Image 2-2.2 - Aggressive Nmap scan of 192.168.13.0/24 revealing additional host information
@@ -515,46 +495,27 @@ This second scan revealed 192.168.13.13 was running a version of Drupal 8 with a
 
 The aggressive Nmap scan also reported potentially risky http methods being performed by the 192.168.13.12 host, so a Nessus scan was performed against it to identify vulnerabilities. This revealed a critical remote code execution vulnerability (ID 97610) in its version of Apache Struts.
 
-
-
-<p id="gdcalert39" ><span style="color: red; font-weight: bold">>>>>>  gd2md-html alert: inline image link here (to images/image39.jpg). Store image on your image server and adjust path/filename/extension if necessary. </span><br>(<a href="#">Back to top</a>)(<a href="#gdcalert40">Next alert</a>)<br><span style="color: red; font-weight: bold">>>>>> </span></p>
-
-
-![alt_text](images/image39.jpg "image_tooltip")
+![alt_text](https://github.com/twosharprocks/UADEL-CYBER-BOOTCAMP-2022/blob/main/Homework/Module18_Project2/Images-Day2/flag6-nessus.jpg)
 
 
 Image 2-2.3 - Nessus scan on 192.168.13.12 revealing a critical vulnerability in Apache Struts
 
 Reviewing the aggressive Nmap scan again, host 192.168.13.10 was shown to be running an Apache Tomcat/Coyote JSP engine on open port 8080 (TCP). Performing a metasploit search for “apache tomcat jsp” provided an exploit to upload a shell using a PUT request bypass (CVE-2017-12617), and this was used to create a command shell and access sensitive data.
 
-
-
-<p id="gdcalert40" ><span style="color: red; font-weight: bold">>>>>>  gd2md-html alert: inline image link here (to images/image40.jpg). Store image on your image server and adjust path/filename/extension if necessary. </span><br>(<a href="#">Back to top</a>)(<a href="#gdcalert41">Next alert</a>)<br><span style="color: red; font-weight: bold">>>>>> </span></p>
-
-
-![alt_text](images/image40.jpg "image_tooltip")
+![alt_text](https://github.com/twosharprocks/UADEL-CYBER-BOOTCAMP-2022/blob/main/Homework/Module18_Project2/Images-Day2/flag7-jspbypass-ip10.jpg)
 
 
 Image 2-3.1 - Using a tomcat jsp exploit to establish a shell and access 192.168.13.10’s root folder
 
 The aggressive Nmap scan also revealed host 192.168.13.11 is running Apache 2.4.7 - a version of Apache that is known to be vulnerable to “Shellshock” remote code execution through the bash shell’s evaluation of environment variables (CVE-2014-6271). By running the Shellshock exploit against 192.168.13.11 it was possible to achieve sudo access on the host to view the sudoers file.
 
-
-
-<p id="gdcalert41" ><span style="color: red; font-weight: bold">>>>>>  gd2md-html alert: inline image link here (to images/image41.jpg). Store image on your image server and adjust path/filename/extension if necessary. </span><br>(<a href="#">Back to top</a>)(<a href="#gdcalert42">Next alert</a>)<br><span style="color: red; font-weight: bold">>>>>> </span></p>
-
-
-![alt_text](images/image41.jpg "image_tooltip")
+![alt_text](https://github.com/twosharprocks/UADEL-CYBER-BOOTCAMP-2022/blob/main/Homework/Module18_Project2/Images-Day2/flag8-1-shellshock-11.jpg)
 
 
 Image 2-3.2 - Setting up the Shellshock exploit to execute on 192.168.13.11
 
 
-
-<p id="gdcalert42" ><span style="color: red; font-weight: bold">>>>>>  gd2md-html alert: inline image link here (to images/image42.jpg). Store image on your image server and adjust path/filename/extension if necessary. </span><br>(<a href="#">Back to top</a>)(<a href="#gdcalert43">Next alert</a>)<br><span style="color: red; font-weight: bold">>>>>> </span></p>
-
-
-![alt_text](images/image42.jpg "image_tooltip")
+![alt_text](https://github.com/twosharprocks/UADEL-CYBER-BOOTCAMP-2022/blob/main/Homework/Module18_Project2/Images-Day2/flag8-shellshock-sudoers.jpg)
 
 
 Image 2-3.3 - Post-exploitation of 192.168.13.11 to view the sudoers file and reveal flag 8
@@ -562,47 +523,28 @@ Image 2-3.3 - Post-exploitation of 192.168.13.11 to view the sudoers file and re
 Continued exploitation of 192.168.13.11 also revealed the host’s passwd file could be viewed.
 
 
-
-<p id="gdcalert43" ><span style="color: red; font-weight: bold">>>>>>  gd2md-html alert: inline image link here (to images/image43.jpg). Store image on your image server and adjust path/filename/extension if necessary. </span><br>(<a href="#">Back to top</a>)(<a href="#gdcalert44">Next alert</a>)<br><span style="color: red; font-weight: bold">>>>>> </span></p>
-
-
-![alt_text](images/image43.jpg "image_tooltip")
+![alt_text](https://github.com/twosharprocks/UADEL-CYBER-BOOTCAMP-2022/blob/main/Homework/Module18_Project2/Images-Day2/flag9-passwd-11.jpg)
 
 
 Image 2-3.3 - Post-exploitation of 192.168.13.11 to view the passwd file and reveal flag 9
 
 Taking advantage of the Apache Struts vulnerability (CVE-2017-5638) identified in the earlier Nessus scan of 192.168.13.12, an exploit was found that would take advantage of how Struts 2’s OGNL module managed HTTP content to execute code remotely and achieve a meterpreter shell.
 
-
-
-<p id="gdcalert44" ><span style="color: red; font-weight: bold">>>>>>  gd2md-html alert: inline image link here (to images/image44.jpg). Store image on your image server and adjust path/filename/extension if necessary. </span><br>(<a href="#">Back to top</a>)(<a href="#gdcalert45">Next alert</a>)<br><span style="color: red; font-weight: bold">>>>>> </span></p>
-
-
-![alt_text](images/image44.jpg "image_tooltip")
+![alt_text](https://github.com/twosharprocks/UADEL-CYBER-BOOTCAMP-2022/blob/main/Homework/Module18_Project2/Images-Day2/flag10-exploit-struts-ip12.jpg)
 
 
 Image 2-3.4 - Running a Struts 2 exploit on 192.168.13.12 to establish a meterpreter session
 
  With Meterpreter access, a search for sensitive files was conducted and the compressed file “flagisinthisfile.7z” was identified for exfiltration and inspection to reveal flag 10.
 
-
-
-<p id="gdcalert45" ><span style="color: red; font-weight: bold">>>>>>  gd2md-html alert: inline image link here (to images/image45.jpg). Store image on your image server and adjust path/filename/extension if necessary. </span><br>(<a href="#">Back to top</a>)(<a href="#gdcalert46">Next alert</a>)<br><span style="color: red; font-weight: bold">>>>>> </span></p>
-
-
-![alt_text](images/image45.jpg "image_tooltip")
+![alt_text](https://github.com/twosharprocks/UADEL-CYBER-BOOTCAMP-2022/blob/main/Homework/Module18_Project2/Images-Day2/flag10-ip12.jpg)
 
 
 Image 2-3.5 - Searching 192.168.13.12 for “flags” then viewing “flagisinthisfile.7z”
 
 Moving to host 192.168.13.13, an attempt was made to exploit the vulnerability in Drupal 8 (CVE-2019-6340) that was previously identified by the aggressive Nmap scan. Using an unserialised PHP RCE exploit, it was possible to establish a Meterpreter session and determine the user ID.
 
-
-
-<p id="gdcalert46" ><span style="color: red; font-weight: bold">>>>>>  gd2md-html alert: inline image link here (to images/image46.jpg). Store image on your image server and adjust path/filename/extension if necessary. </span><br>(<a href="#">Back to top</a>)(<a href="#gdcalert47">Next alert</a>)<br><span style="color: red; font-weight: bold">>>>>> </span></p>
-
-
-![alt_text](images/image46.jpg "image_tooltip")
+![alt_text](https://github.com/twosharprocks/UADEL-CYBER-BOOTCAMP-2022/blob/main/Homework/Module18_Project2/Images-Day2/flag11-getuid-ip13.jpg)
 
 
 Image 2-3.6 - Using a PHP exploit on 192.168.13.13 and determining the user ID
@@ -610,11 +552,7 @@ Image 2-3.6 - Using a PHP exploit on 192.168.13.13 and determining the user ID
 Finally, access to 192.168.13.14 was attempted using the open SSH port (22) identified in the aggressive Nmap scan. The WHOIS lookup on totalrekall.xyz have previously revealed an SSH user “alice” in the domain’s registrar data, so access with this username was attempted (T1110.001 Password Guessing).
 
 
-
-<p id="gdcalert47" ><span style="color: red; font-weight: bold">>>>>>  gd2md-html alert: inline image link here (to images/image47.jpg). Store image on your image server and adjust path/filename/extension if necessary. </span><br>(<a href="#">Back to top</a>)(<a href="#gdcalert48">Next alert</a>)<br><span style="color: red; font-weight: bold">>>>>> </span></p>
-
-
-![alt_text](images/image47.jpg "image_tooltip")
+![alt_text](https://github.com/twosharprocks/UADEL-CYBER-BOOTCAMP-2022/blob/main/Homework/Module18_Project2/Images-Day2/flag12-alice-ssh-ip14.jpg)
 
 
 Image 2-4.1 - Attempting SSH access to 192.168.13.14 with username “alice”
@@ -622,33 +560,20 @@ Image 2-4.1 - Attempting SSH access to 192.168.13.14 with username “alice”
 Automated password guessing was attempted using Hydra and the rockyou.txt wordlist, however the penetration tester guessed the user password “alice” in a separate terminal before Hydra was successful. 
 
 
-
-<p id="gdcalert48" ><span style="color: red; font-weight: bold">>>>>>  gd2md-html alert: inline image link here (to images/image48.jpg). Store image on your image server and adjust path/filename/extension if necessary. </span><br>(<a href="#">Back to top</a>)(<a href="#gdcalert49">Next alert</a>)<br><span style="color: red; font-weight: bold">>>>>> </span></p>
-
-
-![alt_text](images/image48.jpg "image_tooltip")
+![alt_text](https://github.com/twosharprocks/UADEL-CYBER-BOOTCAMP-2022/blob/main/Homework/Module18_Project2/Images-Day2/flag12-alice-ssh-hydra-ip14.jpg)
 
 
 Image 2-4.2 - Running an unsuccessful Hydra attack on 192.168.13.14’s SSH service
 
 
-
-<p id="gdcalert49" ><span style="color: red; font-weight: bold">>>>>>  gd2md-html alert: inline image link here (to images/image49.jpg). Store image on your image server and adjust path/filename/extension if necessary. </span><br>(<a href="#">Back to top</a>)(<a href="#gdcalert50">Next alert</a>)<br><span style="color: red; font-weight: bold">>>>>> </span></p>
-
-
-![alt_text](images/image49.jpg "image_tooltip")
+![alt_text](https://github.com/twosharprocks/UADEL-CYBER-BOOTCAMP-2022/blob/main/Homework/Module18_Project2/Images-Day2/flag12-alice-success-ip14.jpg)
 
 
 Image 2-4.3 - Successfully logging into 192.168.13.14’s SSH service using “alice:alice”
 
 With user access to 192.168.13.14, the next step was to escalate privileges. Using a vulnerability in the sudoers configuration, it was possible to set the user ID as -1 to bypass sudo authentication and gain root privilege (CVE-2019-14287). With root privilege, it was then possible to navigate to the root folder and display the “flag12.txt” file.
 
-
-
-<p id="gdcalert50" ><span style="color: red; font-weight: bold">>>>>>  gd2md-html alert: inline image link here (to images/image50.jpg). Store image on your image server and adjust path/filename/extension if necessary. </span><br>(<a href="#">Back to top</a>)(<a href="#gdcalert51">Next alert</a>)<br><span style="color: red; font-weight: bold">>>>>> </span></p>
-
-
-![alt_text](images/image50.jpg "image_tooltip")
+![alt_text](https://github.com/twosharprocks/UADEL-CYBER-BOOTCAMP-2022/blob/main/Homework/Module18_Project2/Images-Day2/flag12-alice-sudo-expl-ip14.jpg)
 
 
 Image 2-4.4 - Gaining root privilege through a sudoers configuration vulnerability and viewing flag 12
@@ -661,23 +586,14 @@ Image 2-4.4 - Gaining root privilege through a sudoers configuration vulnerabili
 The third and final day of penetration testing began with an OSINT search for user credentials in the public repositories of the “totalrekall” account on GitHub. Accessing “[www.github.com/totalrekall](www.github.com/totalrekall)” only one public repository was available and labelled “site”. Opening this repository the majority of it appeared to be a backup of an old version of the Rekall corporation’s website.
 
 
-
-<p id="gdcalert51" ><span style="color: red; font-weight: bold">>>>>>  gd2md-html alert: inline image link here (to images/image51.jpg). Store image on your image server and adjust path/filename/extension if necessary. </span><br>(<a href="#">Back to top</a>)(<a href="#gdcalert52">Next alert</a>)<br><span style="color: red; font-weight: bold">>>>>> </span></p>
-
-
-![alt_text](images/image51.jpg "image_tooltip")
+![alt_text](https://github.com/twosharprocks/UADEL-CYBER-BOOTCAMP-2022/blob/main/Homework/Module18_Project2/Images-Day3/flag1-1gitrepo.jpg)
 
 
 Image 3-1.1 - Publicly-available “site” repository on the “totalrekall” GitHub account
 
 The “xampp.users” file stood out however, and opening it revealed a username “trivera” and password hash. 
 
-
-
-<p id="gdcalert52" ><span style="color: red; font-weight: bold">>>>>>  gd2md-html alert: inline image link here (to images/image52.jpg). Store image on your image server and adjust path/filename/extension if necessary. </span><br>(<a href="#">Back to top</a>)(<a href="#gdcalert53">Next alert</a>)<br><span style="color: red; font-weight: bold">>>>>> </span></p>
-
-
-![alt_text](images/image52.jpg "image_tooltip")
+![alt_text](https://github.com/twosharprocks/UADEL-CYBER-BOOTCAMP-2022/blob/main/Homework/Module18_Project2/Images-Day3/flag1-github.jpg)
 
 
 Image 3-1.2 - The xampp.users file revealing a username and password hash
@@ -685,11 +601,7 @@ Image 3-1.2 - The xampp.users file revealing a username and password hash
 This password hash was immediately dropped into a text file and cracked using John the Ripper (T1110.002:Password Cracking) to reveal the password “Tanya4life”.
 
 
-
-<p id="gdcalert53" ><span style="color: red; font-weight: bold">>>>>>  gd2md-html alert: inline image link here (to images/image53.jpg). Store image on your image server and adjust path/filename/extension if necessary. </span><br>(<a href="#">Back to top</a>)(<a href="#gdcalert54">Next alert</a>)<br><span style="color: red; font-weight: bold">>>>>> </span></p>
-
-
-![alt_text](images/image53.jpg "image_tooltip")
+![alt_text](https://github.com/twosharprocks/UADEL-CYBER-BOOTCAMP-2022/blob/main/Homework/Module18_Project2/Images-Day3/flag1-pass.jpg)
 
 
 Image 3-1.3 - Cracking the password hash for trivera
