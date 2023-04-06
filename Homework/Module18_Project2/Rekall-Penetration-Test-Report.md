@@ -196,12 +196,7 @@ As the following grid shows, each threat is assessed in terms of both its potent
 
 
 
-<p id="gdcalert2" ><span style="color: red; font-weight: bold">>>>>>  gd2md-html alert: inline image link here (to images/image2.png). Store image on your image server and adjust path/filename/extension if necessary. </span><br>(<a href="#">Back to top</a>)(<a href="#gdcalert3">Next alert</a>)<br><span style="color: red; font-weight: bold">>>>>> </span></p>
-
-
-![alt_text](images/image2.png "image_tooltip")
-
-
+![risk-matrix](https://github.com/twosharprocks/UADEL-CYBER-BOOTCAMP-2022/blob/main/Homework/Module16-17_Penetration-Testing/Images/Risk-Matrix.jpg?raw=true)
 
 ### 
 
@@ -255,12 +250,7 @@ We successfully found several critical vulnerabilities that should be immediatel
 
 Initial reconnaissance of 192.168.14.35 was performed using a dictionary attack with dirbuster to establish a directory tree for the website and reveal hidden pages or files not linked directly on the public-facing website (T1590: Gather Victim Network Information). 
 
-
-
-<p id="gdcalert3" ><span style="color: red; font-weight: bold">>>>>>  gd2md-html alert: inline image link here (to images/image3.jpg). Store image on your image server and adjust path/filename/extension if necessary. </span><br>(<a href="#">Back to top</a>)(<a href="#gdcalert4">Next alert</a>)<br><span style="color: red; font-weight: bold">>>>>> </span></p>
-
-
-![alt_text](images/image3.jpg "image_tooltip")
+![alt_text](https://github.com/twosharprocks/UADEL-CYBER-BOOTCAMP-2022/blob/main/Homework/Module18_Project2/Images-Day1/1-1-Dirbuster-initial.jpg)
 
 
 Image 1-1.1 - OWASP Dirbuster performing a dictionary attack on 192.168.14.35
@@ -269,110 +259,58 @@ Due to the brute-force nature of Dirbuster, it was allowed to map the files and 
 
 Navigating to “Welcome” (192.168.14.35/Welcome.php) the user is presented with a “Welcome to VR Planning” page. This page included a Javascript form intended for customers to enter their name which proved vulnerable to a reflected XSS attack (T1189: Drive-By Compromise).
 
-
-
-<p id="gdcalert4" ><span style="color: red; font-weight: bold">>>>>>  gd2md-html alert: inline image link here (to images/image4.jpg). Store image on your image server and adjust path/filename/extension if necessary. </span><br>(<a href="#">Back to top</a>)(<a href="#gdcalert5">Next alert</a>)<br><span style="color: red; font-weight: bold">>>>>> </span></p>
-
-
-![alt_text](images/image4.jpg "image_tooltip")
-
+![alt_text](https://github.com/twosharprocks/UADEL-CYBER-BOOTCAMP-2022/blob/main/Homework/Module18_Project2/Images-Day1/2-1-WelcomeXSS.jpg)
 
 Image 1-2.1 - “Welcome” with malicious XSS in Javascript entry field
 
 
-
-<p id="gdcalert5" ><span style="color: red; font-weight: bold">>>>>>  gd2md-html alert: inline image link here (to images/image5.jpg). Store image on your image server and adjust path/filename/extension if necessary. </span><br>(<a href="#">Back to top</a>)(<a href="#gdcalert6">Next alert</a>)<br><span style="color: red; font-weight: bold">>>>>> </span></p>
-
-
-![alt_text](images/image5.jpg "image_tooltip")
-
+![alt_text](https://github.com/twosharprocks/UADEL-CYBER-BOOTCAMP-2022/blob/main/Homework/Module18_Project2/Images-Day1/2-2-WelcomeXSS.jpg)
 
 Image 1-2.2 - Sensitive data (FLAG 1) displayed on Welcome.php after a reflected XSS attack
 
 Navigating to “VR Planner” (192.168.14.35/Memory-Planner.php) the user is presented with a page with another Javascript entry field (“Choose your charachter” _[sic]_) and two opportunities for external file upload (“Choose your Adventure” and “Choose your location”). The “Choose your charachter” _[sic]_ form used some input validation, but still proved vulnerable to a reflected XSS attack (T1189: Drive-By Compromise) through script obfuscation with &lt;sscript> instead of &lt;script>.
 
-
-
-<p id="gdcalert6" ><span style="color: red; font-weight: bold">>>>>>  gd2md-html alert: inline image link here (to images/image6.jpg). Store image on your image server and adjust path/filename/extension if necessary. </span><br>(<a href="#">Back to top</a>)(<a href="#gdcalert7">Next alert</a>)<br><span style="color: red; font-weight: bold">>>>>> </span></p>
-
-
-![alt_text](images/image6.jpg "image_tooltip")
-
+![alt_text](https://github.com/twosharprocks/UADEL-CYBER-BOOTCAMP-2022/blob/main/Homework/Module18_Project2/Images-Day1/2-3-ssscriptXSS.jpg)
 
 Image 1-2.3 - “Memory-Planner.php” with obfusated & malicious script in Javascript entry field
 
-
-
-<p id="gdcalert7" ><span style="color: red; font-weight: bold">>>>>>  gd2md-html alert: inline image link here (to images/image7.jpg). Store image on your image server and adjust path/filename/extension if necessary. </span><br>(<a href="#">Back to top</a>)(<a href="#gdcalert8">Next alert</a>)<br><span style="color: red; font-weight: bold">>>>>> </span></p>
-
-
-![alt_text](images/image7.jpg "image_tooltip")
-
+![alt_text](https://github.com/twosharprocks/UADEL-CYBER-BOOTCAMP-2022/blob/main/Homework/Module18_Project2/Images-Day1/2-4-ssscriptXSS.jpg)
 
 Image 1-2.4 - Sensitive data (flag 2) displayed on “Memory-Planner.php” after a reflected XSS attack
 
 The two opportunities to upload files from the “Memory-Planner.php” page also opened the page up for potential Local File Inclusion attack (T1190: Exploit Public-Facing Application). The first upload opportunity (“Choose your Adventure”, shown below in Image 2.5) had no file whitelisting measures in place, and allowed the upload of a malicious php file instead of an image. This malicious php file revealed further sensitive data as “flag 5”.
 
-
-
-<p id="gdcalert8" ><span style="color: red; font-weight: bold">>>>>>  gd2md-html alert: inline image link here (to images/image8.jpg). Store image on your image server and adjust path/filename/extension if necessary. </span><br>(<a href="#">Back to top</a>)(<a href="#gdcalert9">Next alert</a>)<br><span style="color: red; font-weight: bold">>>>>> </span></p>
-
-
-![alt_text](images/image8.jpg "image_tooltip")
-
+![alt_text](https://github.com/twosharprocks/UADEL-CYBER-BOOTCAMP-2022/blob/main/Homework/Module18_Project2/Images-Day1/2-5-LFI.jpg)
 
 Image 1-2.5 - “Choose your Adventure” before upload of the malicious php file
 
 
-
-<p id="gdcalert9" ><span style="color: red; font-weight: bold">>>>>>  gd2md-html alert: inline image link here (to images/image9.jpg). Store image on your image server and adjust path/filename/extension if necessary. </span><br>(<a href="#">Back to top</a>)(<a href="#gdcalert10">Next alert</a>)<br><span style="color: red; font-weight: bold">>>>>> </span></p>
-
-
-![alt_text](images/image9.jpg "image_tooltip")
-
+![alt_text](https://github.com/twosharprocks/UADEL-CYBER-BOOTCAMP-2022/blob/main/Homework/Module18_Project2/Images-Day1/2-6-LFI.jpg)
 
 Image 1-2.6 - Sensitive data (flag 5) displayed on “Memory-Planner.php” after Local File Inclusion
 
 The second opportunity for file upload (“Choose your location” shown below in Image 2.7) used input whitelisting to filter any file uploads that did not end in “.jpg”. However the same malicious php file could still be uploaded by adding “.jpg” to the end of the filename (T1190: Exploit Public-Facing Application) to reveal sensitive data in the form of “flag 6”
 
 
-
-<p id="gdcalert10" ><span style="color: red; font-weight: bold">>>>>>  gd2md-html alert: inline image link here (to images/image10.jpg). Store image on your image server and adjust path/filename/extension if necessary. </span><br>(<a href="#">Back to top</a>)(<a href="#gdcalert11">Next alert</a>)<br><span style="color: red; font-weight: bold">>>>>> </span></p>
-
-
-![alt_text](images/image10.jpg "image_tooltip")
+![alt_text](https://github.com/twosharprocks/UADEL-CYBER-BOOTCAMP-2022/blob/main/Homework/Module18_Project2/Images-Day1/2-7-LFI2.jpg)
 
 
 Image 1-2.7 - “Choose your location” before upload of malicious php file with a .jpg extension
 
-
-
-<p id="gdcalert11" ><span style="color: red; font-weight: bold">>>>>>  gd2md-html alert: inline image link here (to images/image11.jpg). Store image on your image server and adjust path/filename/extension if necessary. </span><br>(<a href="#">Back to top</a>)(<a href="#gdcalert12">Next alert</a>)<br><span style="color: red; font-weight: bold">>>>>> </span></p>
-
-
-![alt_text](images/image11.jpg "image_tooltip")
+![alt_text](https://github.com/twosharprocks/UADEL-CYBER-BOOTCAMP-2022/blob/main/Homework/Module18_Project2/Images-Day1/2-8-LFI2.jpg)
 
 
 Image 1-2.8 - Sensitive data (flag 6) displayed on “Memory-Planner.php” after Local File Inclusion
 
 Moving from Memory-Planner.php to the “Login.php” page, the user is presented with four Javascript entry fields: two for regular users to login with their name and password, and two more for an admin to login with a separate username and password. The first pair of fields (for user login) was shown to be susceptible to SQL injection, with a password-less login achieved using the payload: ‘ OR 1=1-- -
 
-
-
-<p id="gdcalert12" ><span style="color: red; font-weight: bold">>>>>>  gd2md-html alert: inline image link here (to images/image12.jpg). Store image on your image server and adjust path/filename/extension if necessary. </span><br>(<a href="#">Back to top</a>)(<a href="#gdcalert13">Next alert</a>)<br><span style="color: red; font-weight: bold">>>>>> </span></p>
-
-
-![alt_text](images/image12.jpg "image_tooltip")
+![alt_text](https://github.com/twosharprocks/UADEL-CYBER-BOOTCAMP-2022/blob/main/Homework/Module18_Project2/Images-Day1/3-1-SQLinj.jpg)
 
 
 Image 1-3.1 - A malicious SQL string in the Username field of “Login.php”
 
 
-
-<p id="gdcalert13" ><span style="color: red; font-weight: bold">>>>>>  gd2md-html alert: inline image link here (to images/image13.jpg). Store image on your image server and adjust path/filename/extension if necessary. </span><br>(<a href="#">Back to top</a>)(<a href="#gdcalert14">Next alert</a>)<br><span style="color: red; font-weight: bold">>>>>> </span></p>
-
-
-![alt_text](images/image13.jpg "image_tooltip")
+![alt_text](https://github.com/twosharprocks/UADEL-CYBER-BOOTCAMP-2022/blob/main/Homework/Module18_Project2/Images-Day1/3-2-SQLinj.jpg)
 
 
 Image 1-3.2 - Successful execution of malicious SQL string to bypass user password authentication
@@ -382,238 +320,131 @@ Successful user login revealed sensitive data in the form of “flag 7”. Howev
 Running DirBuster since the start of the penetration testing activity had produced a directory tree for most the website, revealing numerous sensitive files openly available without user authentication. One of these files was the openly accessible “heroes.xml” stored in the “passwords” sub-directory, which stored credentials for six users in cleartext (T1552.001: Credentials In Files), all of which were used to legitimately login to Login.php (T1078.003: Valid Accounts) without potentially alerting an administrator to the use of SQL injection.
 
 
-
-<p id="gdcalert14" ><span style="color: red; font-weight: bold">>>>>>  gd2md-html alert: inline image link here (to images/image14.jpg). Store image on your image server and adjust path/filename/extension if necessary. </span><br>(<a href="#">Back to top</a>)(<a href="#gdcalert15">Next alert</a>)<br><span style="color: red; font-weight: bold">>>>>> </span></p>
-
-
-![alt_text](images/image14.jpg "image_tooltip")
-
+![alt_text](https://github.com/twosharprocks/UADEL-CYBER-BOOTCAMP-2022/blob/main/Homework/Module18_Project2/Images-Day1/3-2-XMLUsers.jpg)
 
 Image 1-3.3 - Publicly-available “heroes.xml” file found by DirBuster, listing cleartext user credentials 
 
 
-
-<p id="gdcalert15" ><span style="color: red; font-weight: bold">>>>>>  gd2md-html alert: inline image link here (to images/image15.jpg). Store image on your image server and adjust path/filename/extension if necessary. </span><br>(<a href="#">Back to top</a>)(<a href="#gdcalert16">Next alert</a>)<br><span style="color: red; font-weight: bold">>>>>> </span></p>
-
-
-![alt_text](images/image15.jpg "image_tooltip")
-
+![alt_text](https://github.com/twosharprocks/UADEL-CYBER-BOOTCAMP-2022/blob/main/Homework/Module18_Project2/Images-Day1/3-2-neo1.jpg)
 
 Image 3.4 - Using valid user credentials found in “heroes.xml” to login legitimately
 
 Moving down the Login.php page to the admin login fields, it was quickly discovered by simply highlighting the text around the login fields that legitimate administrator credentials were in cleartext (but coloured to match the background) next to the white text “Login:” and “Password”, as shown below in Image 3.5.
 
 
-
-<p id="gdcalert16" ><span style="color: red; font-weight: bold">>>>>>  gd2md-html alert: inline image link here (to images/image16.jpg). Store image on your image server and adjust path/filename/extension if necessary. </span><br>(<a href="#">Back to top</a>)(<a href="#gdcalert17">Next alert</a>)<br><span style="color: red; font-weight: bold">>>>>> </span></p>
-
-
-![alt_text](images/image16.jpg "image_tooltip")
+![alt_text](https://github.com/twosharprocks/UADEL-CYBER-BOOTCAMP-2022/blob/main/Homework/Module18_Project2/Images-Day1/3-5-Admin.jpg)
 
 
 Image 1-3.5 - Admin credentials discovered by highlighting the text near the Admin login
 
 Using the publicly-available Admin credentials, it was possible to login and reveal further sensitive data in the form of “flag 8” and a link to sensitive administrator networking tools.
 
-
-
-<p id="gdcalert17" ><span style="color: red; font-weight: bold">>>>>>  gd2md-html alert: inline image link here (to images/image17.jpg). Store image on your image server and adjust path/filename/extension if necessary. </span><br>(<a href="#">Back to top</a>)(<a href="#gdcalert18">Next alert</a>)<br><span style="color: red; font-weight: bold">>>>>> </span></p>
-
-
-![alt_text](images/image17.jpg "image_tooltip")
-
+![alt_text](https://github.com/twosharprocks/UADEL-CYBER-BOOTCAMP-2022/blob/main/Homework/Module18_Project2/Images-Day1/3-6-Admin.jpg)
 
 Image 1-3.6 - Successful admin login revealing flag 8 & link to admin networking tools
 
 Access to these networking tools is not limited to administrators however, as login is not required and networking.php had been previously revealed through DirBuster.
 
-
-
-<p id="gdcalert18" ><span style="color: red; font-weight: bold">>>>>>  gd2md-html alert: inline image link here (to images/image18.jpg). Store image on your image server and adjust path/filename/extension if necessary. </span><br>(<a href="#">Back to top</a>)(<a href="#gdcalert19">Next alert</a>)<br><span style="color: red; font-weight: bold">>>>>> </span></p>
-
-
-![alt_text](images/image18.jpg "image_tooltip")
+![alt_text](https://github.com/twosharprocks/UADEL-CYBER-BOOTCAMP-2022/blob/main/Homework/Module18_Project2/Images-Day1/3-7-Networking.jpg)
 
 
 Image 1-3.7 - DirBuster highlighting networking.php and “200” (OK) response
 
 Likewise, DirBuster revealed two other sensitive cleartext files stored in the home directory of 192.168.14.35 - “robots.txt” and “vendors.txt”. “vendors.txt” revealed important server configuration information, while “robots.txt” revealed an un-indexed page “souvenirs.php” (previously identified by DirBuster) and “flag 9”.
 
-
-
-<p id="gdcalert19" ><span style="color: red; font-weight: bold">>>>>>  gd2md-html alert: inline image link here (to images/image19.jpg). Store image on your image server and adjust path/filename/extension if necessary. </span><br>(<a href="#">Back to top</a>)(<a href="#gdcalert20">Next alert</a>)<br><span style="color: red; font-weight: bold">>>>>> </span></p>
-
-
-![alt_text](images/image19.jpg "image_tooltip")
-
+![alt_text](https://github.com/twosharprocks/UADEL-CYBER-BOOTCAMP-2022/blob/main/Homework/Module18_Project2/Images-Day1/4-1-Robots.jpg)
 
 Image 1-4.1 - Contents of robots.txt revealing unindexed page souvenirs.php and “flag 9”
 
 Moving to the networking tools at network.php, the user is presented with two Javascript entry fields for performing a DNS and MX Record Lookup respectively. The first field (“DNS Check”) was proven to be highly susceptible to OS injection by using the character ; as a line break followed by an OS command. In this way the system information (such as ifconfig) could be viewed, and using the payload “[www.example.com](www.example.com); cat vendors.txt” to access the previously viewed “vendors.txt” file also revealed flag 10.
 
-
-
-<p id="gdcalert20" ><span style="color: red; font-weight: bold">>>>>>  gd2md-html alert: inline image link here (to images/image20.jpg). Store image on your image server and adjust path/filename/extension if necessary. </span><br>(<a href="#">Back to top</a>)(<a href="#gdcalert21">Next alert</a>)<br><span style="color: red; font-weight: bold">>>>>> </span></p>
-
-
-![alt_text](images/image20.jpg "image_tooltip")
+![alt_text](https://github.com/twosharprocks/UADEL-CYBER-BOOTCAMP-2022/blob/main/Homework/Module18_Project2/Images-Day1/4-2-ifconfig.jpg)
  
 
 Image 1-4.2 - Using OS injection on “DNS Check” of networking.php to reveal network interfaces, vendor information & flag 10
 
 Like the “DNS Check”, the “MX Record Checker” field on networking.php was also vulnerable to OS injection. While “DNS Check” required ; to break the command, a similar result could be achieved in “MX Record Checker” by using a pipe to display files. Using a pipe to display vendors.txt also resulted in the display of flag 11.
 
-
-
-<p id="gdcalert21" ><span style="color: red; font-weight: bold">>>>>>  gd2md-html alert: inline image link here (to images/image21.jpg). Store image on your image server and adjust path/filename/extension if necessary. </span><br>(<a href="#">Back to top</a>)(<a href="#gdcalert22">Next alert</a>)<br><span style="color: red; font-weight: bold">>>>>> </span></p>
-
-
-![alt_text](images/image21.jpg "image_tooltip")
+![alt_text](https://github.com/twosharprocks/UADEL-CYBER-BOOTCAMP-2022/blob/main/Homework/Module18_Project2/Images-Day1/4-2-vendors.jpg)
 
 
 Image 1-4.3 - Using OS injection in “MX Record Checker” to display vendors.txt and flag 11
 
 With the ability to view files from the underlying operating system, it was possible to use the MX Record Checker field to traverse the server’s etc folder and list all the users in the “passwd” file.
 
-
-
-<p id="gdcalert22" ><span style="color: red; font-weight: bold">>>>>>  gd2md-html alert: inline image link here (to images/image22.jpg). Store image on your image server and adjust path/filename/extension if necessary. </span><br>(<a href="#">Back to top</a>)(<a href="#gdcalert23">Next alert</a>)<br><span style="color: red; font-weight: bold">>>>>> </span></p>
-
-
-![alt_text](images/image22.jpg "image_tooltip")
+![alt_text](https://github.com/twosharprocks/UADEL-CYBER-BOOTCAMP-2022/blob/main/Homework/Module18_Project2/Images-Day1/4-3-users.jpg)
 
 
 Image 1-4.4 - Image 4.3 - Using OS injection and ../../ in “MX Record Checker” to show system users
 
 Most of the “users” listed have a UID &lt; 1000 and as such are not user accounts. However the user “melina” is a user account with a home directory on the system, and as such is likely to be an administrator. Using this user account, it was then possible to guess the user’s weak password (“melina”) to again access the administrator section of the website. Using this second account it was possible to view flag 12, as well a link to a hidden part of the website. 
 
-
-
-<p id="gdcalert23" ><span style="color: red; font-weight: bold">>>>>>  gd2md-html alert: inline image link here (to images/image23.jpg). Store image on your image server and adjust path/filename/extension if necessary. </span><br>(<a href="#">Back to top</a>)(<a href="#gdcalert24">Next alert</a>)<br><span style="color: red; font-weight: bold">>>>>> </span></p>
-
-
-![alt_text](images/image23.jpg "image_tooltip")
+![alt_text](https://github.com/twosharprocks/UADEL-CYBER-BOOTCAMP-2022/blob/main/Homework/Module18_Project2/Images-Day1/4-5-melina.jpg)
 
 
 Image 1-4.5 - Using “melina:melina” to access the admin login and retrieve flag 12
 
 Following the link to the “secret legal data” revealed “admin_legal_data.php” which is a page that DirBuster has **<span style="text-decoration:underline;">not</span>** previously identified. This page presented the user with a notice “This page is locked. Admins Only!” however the address bar showed “?admin=001” suggesting the page used weak cookies.
 
-
-
-<p id="gdcalert24" ><span style="color: red; font-weight: bold">>>>>>  gd2md-html alert: inline image link here (to images/image24.jpg). Store image on your image server and adjust path/filename/extension if necessary. </span><br>(<a href="#">Back to top</a>)(<a href="#gdcalert25">Next alert</a>)<br><span style="color: red; font-weight: bold">>>>>> </span></p>
-
-
-![alt_text](images/image24.jpg "image_tooltip")
+![alt_text](https://github.com/twosharprocks/UADEL-CYBER-BOOTCAMP-2022/blob/main/Homework/Module18_Project2/Images-Day1/5-1-admin.jpg)
 
 
 Image 1-5.1 - admin_legal_data.php showing “admin=001” suggesting weak cookies for authentication
 
 A Battering Ram attack was attempted on the page using BurpSuite Intruder by modifying the “admin=” value to test sequential numbers between 1 and 100.
 
-
-
-<p id="gdcalert25" ><span style="color: red; font-weight: bold">>>>>>  gd2md-html alert: inline image link here (to images/image25.jpg). Store image on your image server and adjust path/filename/extension if necessary. </span><br>(<a href="#">Back to top</a>)(<a href="#gdcalert26">Next alert</a>)<br><span style="color: red; font-weight: bold">>>>>> </span></p>
-
-
-![alt_text](images/image25.jpg "image_tooltip")
-
+![alt_text](https://github.com/twosharprocks/UADEL-CYBER-BOOTCAMP-2022/blob/main/Homework/Module18_Project2/Images-Day1/5-2-Ram-Payload.jpg)
 
 Image 1-5.2 - Preparing a sequential number Battering Ram attack against “admin_legal_data.php”
 
 Reviewing the results of the battering ram attack “87” was identified as the only payload with a different length to all others, and inspecting the server response revealed flag 14.
 
-
-
-<p id="gdcalert26" ><span style="color: red; font-weight: bold">>>>>>  gd2md-html alert: inline image link here (to images/image26.jpg). Store image on your image server and adjust path/filename/extension if necessary. </span><br>(<a href="#">Back to top</a>)(<a href="#gdcalert27">Next alert</a>)<br><span style="color: red; font-weight: bold">>>>>> </span></p>
-
-
-![alt_text](images/image26.jpg "image_tooltip")
-
+![alt_text](https://github.com/twosharprocks/UADEL-CYBER-BOOTCAMP-2022/blob/main/Homework/Module18_Project2/Images-Day1/5-2-Ram-Result.jpg)
 
 Image 1-5.3 - Battering Ram attack results with payload 87’s different length and flag 14 in response
 
 Reviewing missing flags and pages not previously inspected, we moved to comments.php where the user is presented with a Javascript field for adding comments to the page. This Javascript field was shown to be susceptible to Reflected XSS attacks via unsanitised user input (T1189: Drive-By Compromise).
 
-
-
-<p id="gdcalert27" ><span style="color: red; font-weight: bold">>>>>>  gd2md-html alert: inline image link here (to images/image27.jpg). Store image on your image server and adjust path/filename/extension if necessary. </span><br>(<a href="#">Back to top</a>)(<a href="#gdcalert28">Next alert</a>)<br><span style="color: red; font-weight: bold">>>>>> </span></p>
-
-
-![alt_text](images/image27.jpg "image_tooltip")
-
+![alt_text](https://github.com/twosharprocks/UADEL-CYBER-BOOTCAMP-2022/blob/main/Homework/Module18_Project2/Images-Day1/6-1-Comments.jpg)
 
 Image 1-6.1 - comments.php with a Reflected XSS payload in the Javascript field
 
 Executing the payload &lt;script>alert(1)&lt;/script> resulted in an on-screen alert “1” and revealed flag 3.
 
-
-
-<p id="gdcalert28" ><span style="color: red; font-weight: bold">>>>>>  gd2md-html alert: inline image link here (to images/image28.jpg). Store image on your image server and adjust path/filename/extension if necessary. </span><br>(<a href="#">Back to top</a>)(<a href="#gdcalert29">Next alert</a>)<br><span style="color: red; font-weight: bold">>>>>> </span></p>
-
-
-![alt_text](images/image28.jpg "image_tooltip")
-
+![alt_text](https://github.com/twosharprocks/UADEL-CYBER-BOOTCAMP-2022/blob/main/Homework/Module18_Project2/Images-Day1/6-2-Comments.jpg)
 
 Image 1-6.2 - comments.php after executing the XSS payload to show alert “1” and flag 3
 
 Moving to souvenirs.php, the user is presented with a page offering merchandise and a link that prints “CALLUSNOW” when clicked. Inspecting the address bar it appears the website prints whatever is after “?message=” and is susceptible to command injection.
 
-
-
-<p id="gdcalert29" ><span style="color: red; font-weight: bold">>>>>>  gd2md-html alert: inline image link here (to images/image29.jpg). Store image on your image server and adjust path/filename/extension if necessary. </span><br>(<a href="#">Back to top</a>)(<a href="#gdcalert30">Next alert</a>)<br><span style="color: red; font-weight: bold">>>>>> </span></p>
-
-
-![alt_text](images/image29.jpg "image_tooltip")
-
+![alt_text](https://github.com/twosharprocks/UADEL-CYBER-BOOTCAMP-2022/blob/main/Homework/Module18_Project2/Images-Day1/6-3-Souvenirs.jpg)
 
 Image 1-6.3 - souvenirs.php after clicking the on-screen link to display “CALLUSNOW”
 
 Testing this page for command injection, it was found that ;system would reveal flag 13.
 
-
-
-<p id="gdcalert30" ><span style="color: red; font-weight: bold">>>>>>  gd2md-html alert: inline image link here (to images/image30.jpg). Store image on your image server and adjust path/filename/extension if necessary. </span><br>(<a href="#">Back to top</a>)(<a href="#gdcalert31">Next alert</a>)<br><span style="color: red; font-weight: bold">>>>>> </span></p>
-
-
-![alt_text](images/image30.jpg "image_tooltip")
+![alt_text](https://github.com/twosharprocks/UADEL-CYBER-BOOTCAMP-2022/blob/main/Homework/Module18_Project2/Images-Day1/6-4-Souvenirs.jpg)
 
 
 Image 1-6.4 - Using the ;system payload in the address bar to reveal flag 13
 
 Reviewing all discovered pages on 192.168.14.35, it was decided to inspect the headers of public-facing pages for sensitive information. Using curl to inspect the headers, it was shown that sensitive information in the form of “flag 4” could be found in the header of “About-Rekall.php” under the “X-Powered-By” section.
 
-
-
-<p id="gdcalert31" ><span style="color: red; font-weight: bold">>>>>>  gd2md-html alert: inline image link here (to images/image31.jpg). Store image on your image server and adjust path/filename/extension if necessary. </span><br>(<a href="#">Back to top</a>)(<a href="#gdcalert32">Next alert</a>)<br><span style="color: red; font-weight: bold">>>>>> </span></p>
-
-
-![alt_text](images/image31.jpg "image_tooltip")
-
+![alt_text](https://github.com/twosharprocks/UADEL-CYBER-BOOTCAMP-2022/blob/main/Homework/Module18_Project2/Images-Day1/7-1-CURL.jpg)
 
 Image 1-7.1 - Using curl to inspect page headers, revealing Flag 4 in About-Rekall.php
 
 Reviewing pages also revealed that disclaimer.php had not been previously investigated. Moving to “disclaimer.php” directly revealed no information, however navigating to it through the button on the “Welcome.php” page revealed the address needed to include ?page=disclaimer_2.txt to display a disclaimer. This suggested directory traversal may be possible.
 
 
-
-<p id="gdcalert32" ><span style="color: red; font-weight: bold">>>>>>  gd2md-html alert: inline image link here (to images/image32.jpg). Store image on your image server and adjust path/filename/extension if necessary. </span><br>(<a href="#">Back to top</a>)(<a href="#gdcalert33">Next alert</a>)<br><span style="color: red; font-weight: bold">>>>>> </span></p>
-
-
-![alt_text](images/image32.jpg "image_tooltip")
+![alt_text](https://github.com/twosharprocks/UADEL-CYBER-BOOTCAMP-2022/blob/main/Homework/Module18_Project2/Images-Day1/7-2-Disclaimer.jpg)
 
 
 Image 1-7.2 - disclaimer.php using ?page=disclaimer_2.txt to display the current disclaimer
 
 “disclaimer_2.txt”  suggested that a previous version may be accessible and likely named “disclaimer.txt” or “disclaimer_1.txt”. After attempting multiple variations, directory traversal was achieved to access “disclaimer_1.txt” in the “old_disclaimers” directory and reveal flag 15.
 
-
-
-<p id="gdcalert33" ><span style="color: red; font-weight: bold">>>>>>  gd2md-html alert: inline image link here (to images/image33.jpg). Store image on your image server and adjust path/filename/extension if necessary. </span><br>(<a href="#">Back to top</a>)(<a href="#gdcalert34">Next alert</a>)<br><span style="color: red; font-weight: bold">>>>>> </span></p>
-
-
-![alt_text](images/image33.jpg "image_tooltip")
-
+![alt_text](https://github.com/twosharprocks/UADEL-CYBER-BOOTCAMP-2022/blob/main/Homework/Module18_Project2/Images-Day1/7-3-Disclaimer.jpg)
 
 Image 1-7.3 - Using directory traversal to display disclaimer_1.txt and flag 15
 
