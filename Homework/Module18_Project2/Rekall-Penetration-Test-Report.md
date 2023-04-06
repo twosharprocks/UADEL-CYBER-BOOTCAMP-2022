@@ -608,12 +608,7 @@ Image 3-1.3 - Cracking the password hash for trivera
 
 The next step was to run an aggressive Nmap scan on Rekall’s windows subnet 172.22.117.0/24 to identify any available hosts and any vulnerabilities for use in future exploitation.
 
-
-
-<p id="gdcalert54" ><span style="color: red; font-weight: bold">>>>>>  gd2md-html alert: inline image link here (to images/image54.jpg). Store image on your image server and adjust path/filename/extension if necessary. </span><br>(<a href="#">Back to top</a>)(<a href="#gdcalert55">Next alert</a>)<br><span style="color: red; font-weight: bold">>>>>> </span></p>
-
-
-![alt_text](images/image54.jpg "image_tooltip")
+![alt_text]( https://github.com/twosharprocks/UADEL-CYBER-BOOTCAMP-2022/blob/main/Homework/Module18_Project2/Images-Day3/flag2-NmapAgg.jpg)
 
 
 Image 3-2.1 - Running an aggressive Nmap scan against 172.22.117.0/24
@@ -622,120 +617,70 @@ This Nmap scan returned three hosts on the subnet, with two of them belonging to
 
 Attacking the http service on 172.22.117.20 first, an attempt was made to access the site through a web browser. Entering the ip address into the browser prompted a username and password, so “trivera:Tanya4life” collected from the public Github repository was tested and succeeded in providing access.
 
-
-
-<p id="gdcalert55" ><span style="color: red; font-weight: bold">>>>>>  gd2md-html alert: inline image link here (to images/image55.jpg). Store image on your image server and adjust path/filename/extension if necessary. </span><br>(<a href="#">Back to top</a>)(<a href="#gdcalert56">Next alert</a>)<br><span style="color: red; font-weight: bold">>>>>> </span></p>
-
-
-![alt_text](images/image55.jpg "image_tooltip")
+![alt_text](https://github.com/twosharprocks/UADEL-CYBER-BOOTCAMP-2022/blob/main/Homework/Module18_Project2/Images-Day3/flag2-Login1.jpg)
 
 
 Image 3.2.2 - Login prompt on 172.22.117.20 with trivera’s credentials entered
 
 Logging into 172.22.117.20 with trivera’s credentials provided sensitive information in the form of flag2.txt
 
-
-
-<p id="gdcalert56" ><span style="color: red; font-weight: bold">>>>>>  gd2md-html alert: inline image link here (to images/image56.jpg). Store image on your image server and adjust path/filename/extension if necessary. </span><br>(<a href="#">Back to top</a>)(<a href="#gdcalert57">Next alert</a>)<br><span style="color: red; font-weight: bold">>>>>> </span></p>
-
-
-![alt_text](images/image56.jpg "image_tooltip")
-
+![alt_text](https://github.com/twosharprocks/UADEL-CYBER-BOOTCAMP-2022/blob/main/Homework/Module18_Project2/Images-Day3/flag2-Login2.jpg)
 
 Image 3.2.3 - Successful login to 172.22.117.20 revealing cleartext file “flag2.txt”
 
 Next the FTP service of 172.22.117.20 was evaluated. The aggressive Nmap scan had revealed that an anonymous login was possible and that file “flag3.txt” was available, so terminal was used to access the FTP service on 172.22.117.20 and download the file.
 
 
-
-<p id="gdcalert57" ><span style="color: red; font-weight: bold">>>>>>  gd2md-html alert: inline image link here (to images/image57.jpg). Store image on your image server and adjust path/filename/extension if necessary. </span><br>(<a href="#">Back to top</a>)(<a href="#gdcalert58">Next alert</a>)<br><span style="color: red; font-weight: bold">>>>>> </span></p>
-
-
-![alt_text](images/image57.jpg "image_tooltip")
+![alt_text](https://github.com/twosharprocks/UADEL-CYBER-BOOTCAMP-2022/blob/main/Homework/Module18_Project2/Images-Day3/flag3-ftp.jpg)
 
 
 Image 3-2.4 - Accessing the FTP service on 172.22.117.20 anonymously to retrieve flag3.txt
 
 Next the SLMail service on 172.22.117.20 was attacked. Metasploit was searched for “slmail” with a single exploit (seattlelabs_pass) being returned that would exploit a buffer overflow vulnerability in Seattle Lab Mail 5.5 (CVE-2003-0264). 
 
-
-
-<p id="gdcalert58" ><span style="color: red; font-weight: bold">>>>>>  gd2md-html alert: inline image link here (to images/image58.jpg). Store image on your image server and adjust path/filename/extension if necessary. </span><br>(<a href="#">Back to top</a>)(<a href="#gdcalert59">Next alert</a>)<br><span style="color: red; font-weight: bold">>>>>> </span></p>
-
-
-![alt_text](images/image58.jpg "image_tooltip")
+![alt_text](https://github.com/twosharprocks/UADEL-CYBER-BOOTCAMP-2022/blob/main/Homework/Module18_Project2/Images-Day3/flag4-searchslmail.jpg)
 
 
 Image 3-2.5 - Searching for an exploit to use on 172.22.117.20’s SLMail service
 
 After setting the options for the seattlelabs_pass exploit and successfully running it against 172.22.117.20, a meterpreter session was established and by listing files in the landing directory, flag4.txt was identified.
 
-
-
-<p id="gdcalert59" ><span style="color: red; font-weight: bold">>>>>>  gd2md-html alert: inline image link here (to images/image59.jpg). Store image on your image server and adjust path/filename/extension if necessary. </span><br>(<a href="#">Back to top</a>)(<a href="#gdcalert60">Next alert</a>)<br><span style="color: red; font-weight: bold">>>>>> </span></p>
-
-
-![alt_text](images/image59.jpg "image_tooltip")
+![alt_text](https://github.com/twosharprocks/UADEL-CYBER-BOOTCAMP-2022/blob/main/Homework/Module18_Project2/Images-Day3/flag4-meterpreter.jpg)
 
 
 Image 3-2.6 - Running the seattlelabs_pass exploit on 172.22.117.20 and identifying flag4.txt
 
 With initial access to 172.22.117.20 established, the next step was to establish a persistent backdoor by identifying and manipulating a scheduled system task. Opening a shell in meterpreter, the existing scheduled system tasks were queried with a filter to identify potential tasks named “flag5” with as much information about them as possible. Results returned a scheduled task named “flag5” which contained sensitive information in the Comment section.
 
-
-
-<p id="gdcalert60" ><span style="color: red; font-weight: bold">>>>>>  gd2md-html alert: inline image link here (to images/image60.jpg). Store image on your image server and adjust path/filename/extension if necessary. </span><br>(<a href="#">Back to top</a>)(<a href="#gdcalert61">Next alert</a>)<br><span style="color: red; font-weight: bold">>>>>> </span></p>
-
-
-![alt_text](images/image60.jpg "image_tooltip")
+![alt_text](https://github.com/twosharprocks/UADEL-CYBER-BOOTCAMP-2022/blob/main/Homework/Module18_Project2/Images-Day3/flag5-schtaskquery.jpg)
 
 
 Image 3-2.7 - Running a scheduled tasks query with task name “flag5” and the verbose list options
 
 The next step was to enumerate the users of 172.22.117.20 by running the kiwi module against it. By dumping the Security Accounts Manager (SAM) database out with kiwi’s LSA_dump tool, the NTLM password hashes for users “sysadmin” and “flag6” were both identified.
 
-
-
-<p id="gdcalert61" ><span style="color: red; font-weight: bold">>>>>>  gd2md-html alert: inline image link here (to images/image61.jpg). Store image on your image server and adjust path/filename/extension if necessary. </span><br>(<a href="#">Back to top</a>)(<a href="#gdcalert62">Next alert</a>)<br><span style="color: red; font-weight: bold">>>>>> </span></p>
-
-
-![alt_text](images/image61.jpg "image_tooltip")
+![alt_text](https://github.com/twosharprocks/UADEL-CYBER-BOOTCAMP-2022/blob/main/Homework/Module18_Project2/Images-Day3/flag6-lsa_dump_sam.jpg)
 
 
 Image 3-2.8 - Dumping 172.22.117.20’s SAM database to reveal users and password hashes
 
 Running John the Ripper against the password hashes revealed the “flag6” user’s password to be “Computer!”.
 
-
-
-<p id="gdcalert62" ><span style="color: red; font-weight: bold">>>>>>  gd2md-html alert: inline image link here (to images/image62.jpg). Store image on your image server and adjust path/filename/extension if necessary. </span><br>(<a href="#">Back to top</a>)(<a href="#gdcalert63">Next alert</a>)<br><span style="color: red; font-weight: bold">>>>>> </span></p>
-
-
-![alt_text](images/image62.jpg "image_tooltip")
+![alt_text](https://github.com/twosharprocks/UADEL-CYBER-BOOTCAMP-2022/blob/main/Homework/Module18_Project2/Images-Day3/flag6-passwordcrack.jpg)
 
 
 Image 3-2.9 - Cracking the password hash for user “flag6”
 
 Searching 172.22.117.20 for more sensitive information, a shell was established in meterpreter before searching through the host’s public user documents for sensitive information. 
 
-
-
-<p id="gdcalert63" ><span style="color: red; font-weight: bold">>>>>>  gd2md-html alert: inline image link here (to images/image63.jpg). Store image on your image server and adjust path/filename/extension if necessary. </span><br>(<a href="#">Back to top</a>)(<a href="#gdcalert64">Next alert</a>)<br><span style="color: red; font-weight: bold">>>>>> </span></p>
-
-
-![alt_text](images/image63.jpg "image_tooltip")
+![alt_text](https://github.com/twosharprocks/UADEL-CYBER-BOOTCAMP-2022/blob/main/Homework/Module18_Project2/Images-Day3/flag7-pubdocs.jpg)
 
 
 Image 3-2.10 - Listing the files in C:\Users\Public\Documents and identifying “flag7.txt”
 
 Next a lateral move from the 172.22.117.20 host to the Domain Controller 172.22.117.10 was attempted. To access 172.22.117.10 a domain administrator password would be needed, so the kiwi module was again used but this time to dump the LSA cache using “lsadump::cache”.
 
-
-
-<p id="gdcalert64" ><span style="color: red; font-weight: bold">>>>>>  gd2md-html alert: inline image link here (to images/image64.jpg). Store image on your image server and adjust path/filename/extension if necessary. </span><br>(<a href="#">Back to top</a>)(<a href="#gdcalert65">Next alert</a>)<br><span style="color: red; font-weight: bold">>>>>> </span></p>
-
-
-![alt_text](images/image64.jpg "image_tooltip")
+![alt_text](https://github.com/twosharprocks/UADEL-CYBER-BOOTCAMP-2022/blob/main/Homework/Module18_Project2/Images-Day3/flag8-adminhash.jpg)
 
 
 Image 3-3.1 - Using lsadump::cache to dump administrator credentials (password hash highlighted)
@@ -744,36 +689,21 @@ Cracking the MsCacheV2 password hash for domain administrator “ADMBob” in Jo
 
 Using this meterpreter session, it was then possible to create a shell and list user accounts to identify flag8.
 
-
-
-<p id="gdcalert65" ><span style="color: red; font-weight: bold">>>>>>  gd2md-html alert: inline image link here (to images/image65.jpg). Store image on your image server and adjust path/filename/extension if necessary. </span><br>(<a href="#">Back to top</a>)(<a href="#gdcalert66">Next alert</a>)<br><span style="color: red; font-weight: bold">>>>>> </span></p>
-
-
-![alt_text](images/image65.jpg "image_tooltip")
+![alt_text](https://github.com/twosharprocks/UADEL-CYBER-BOOTCAMP-2022/blob/main/Homework/Module18_Project2/Images-Day3/flag8-lateral.jpg)
 
 
 Image 3-3.2 - Using the psexec exploit to establish a meterpreter session on 172.22.117.10 before enumerating the network users.
 
 Navigating through the shell to the C:\, all the files in the root directory were listed to reveal “flag9.txt”
 
-
-
-<p id="gdcalert66" ><span style="color: red; font-weight: bold">>>>>>  gd2md-html alert: inline image link here (to images/image66.jpg). Store image on your image server and adjust path/filename/extension if necessary. </span><br>(<a href="#">Back to top</a>)(<a href="#gdcalert67">Next alert</a>)<br><span style="color: red; font-weight: bold">>>>>> </span></p>
-
-
-![alt_text](images/image66.jpg "image_tooltip")
+![alt_text](https://github.com/twosharprocks/UADEL-CYBER-BOOTCAMP-2022/blob/main/Homework/Module18_Project2/Images-Day3/flag9-heart.jpg)
 
 
 Image 3-3.3 - Navigating to C:\ to find and display flag9.txt
 
 With meterpreter shell access to 172.22.117.10, it was then straight-forward to use the kiwi module to perform “dcsync_ntlm” to simulate the Domain Controller and pull the administrator’s NTLM password hash.
 
-
-
-<p id="gdcalert67" ><span style="color: red; font-weight: bold">>>>>>  gd2md-html alert: inline image link here (to images/image67.jpg). Store image on your image server and adjust path/filename/extension if necessary. </span><br>(<a href="#">Back to top</a>)(<a href="#gdcalert68">Next alert</a>)<br><span style="color: red; font-weight: bold">>>>>> </span></p>
-
-
-![alt_text](images/image67.jpg "image_tooltip")
+![alt_text](https://github.com/twosharprocks/UADEL-CYBER-BOOTCAMP-2022/blob/main/Homework/Module18_Project2/Images-Day3/flag10-adminhash.jpg)
 
 
 Image 3-3.4 - Pulling the administrator’s NTLM hash from 172.22.117.10 with kiwi and dcsync_ntlm
@@ -1628,55 +1558,37 @@ The host 172.22.117.20 is a Rekall host running Windows. With initial access to 
 
 The following completed MITRE ATT&CK navigator map shows all of the techniques and tactics that TSR used throughout the assessment.
 
-A complete version of this MITRE ATT&CK Navigator Map is also [available as a JSON](https://drive.google.com/file/d/1gOJL5aP9MkefX5xS4p6epdFcto5NmqzN/view?usp=sharing) or as a [standalone SVG](https://drive.google.com/file/d/1EcPtldZ570FAW30ckSY1XBvk_Lb1FDJL/view?usp=sharing) (use screen zoom for readable details).
+A complete version of this MITRE ATT&CK Navigator Map is also [available as a JSON](https://github.com/twosharprocks/UADEL-CYBER-BOOTCAMP-2022/blob/main/Homework/Module18_Project2/MITRE-ATT%26CK/rekall_corp.json) or as a [standalone SVG](https://github.com/twosharprocks/UADEL-CYBER-BOOTCAMP-2022/blob/main/Homework/Module18_Project2/MITRE-ATT%26CK/MITRE%20ATTACK%20-%20Rekall_Corp.svg) (use screen zoom for readable details).
 
-
-
-<p id="gdcalert68" ><span style="color: red; font-weight: bold">>>>>>  gd2md-html alert: inline image link here (to images/image68.jpg). Store image on your image server and adjust path/filename/extension if necessary. </span><br>(<a href="#">Back to top</a>)(<a href="#gdcalert69">Next alert</a>)<br><span style="color: red; font-weight: bold">>>>>> </span></p>
-
-
-![alt_text](images/image68.jpg "image_tooltip")
+![alt_text](https://github.com/twosharprocks/UADEL-CYBER-BOOTCAMP-2022/blob/main/Homework/Module18_Project2/MITRE-ATT%26CK/Mitre1.jpg)
 
 
 Image 4.1 - MITRE ATT&CK Navigator Map (page 1 of 3) - Reconnaissance to Persistence
 
 Legend:
 
-
-
-* Performed successfully
-* Failure to perform
+* YELLOW = Performed successfully
+* RED = Failure to perform
 
 
 
-<p id="gdcalert69" ><span style="color: red; font-weight: bold">>>>>>  gd2md-html alert: inline image link here (to images/image69.jpg). Store image on your image server and adjust path/filename/extension if necessary. </span><br>(<a href="#">Back to top</a>)(<a href="#gdcalert70">Next alert</a>)<br><span style="color: red; font-weight: bold">>>>>> </span></p>
-
-
-![alt_text](images/image69.jpg "image_tooltip")
+![alt_text](https://github.com/twosharprocks/UADEL-CYBER-BOOTCAMP-2022/blob/main/Homework/Module18_Project2/MITRE-ATT%26CK/Mitre2.jpg)
 
 
 Image 4.2 - MITRE ATT&CK Navigator Map (page 2 of 3) - Privilege Escalation to Discovery
 
 Legend:
 
+* YELLOW = Performed successfully
+* RED = Failure to perform
 
 
-* Performed successfully
-* Failure to perform
-
-
-
-<p id="gdcalert70" ><span style="color: red; font-weight: bold">>>>>>  gd2md-html alert: inline image link here (to images/image70.jpg). Store image on your image server and adjust path/filename/extension if necessary. </span><br>(<a href="#">Back to top</a>)(<a href="#gdcalert71">Next alert</a>)<br><span style="color: red; font-weight: bold">>>>>> </span></p>
-
-
-![alt_text](images/image70.jpg "image_tooltip")
+![alt_text](https://github.com/twosharprocks/UADEL-CYBER-BOOTCAMP-2022/blob/main/Homework/Module18_Project2/MITRE-ATT%26CK/Mitre3.jpg)
 
 
 Image 4.3 - MITRE ATT&CK Navigator Map (page 3 of 3) - Lateral Movement to Impact
 
 Legend:
 
-
-
-* Performed successfully
-* Failure to perform
+* YELLOW = Performed successfully
+* RED = Failure to perform
