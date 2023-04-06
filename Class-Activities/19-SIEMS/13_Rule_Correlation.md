@@ -16,9 +16,23 @@ As the SOC manager at OMP, you have successfully normalized the various web serv
 Without using any code, design a rule that will assist with detecting the following security events:
 
 1. There was suspicious and unsuccessful web activity from Beijing.
+`if iplocation = Beijing, 
+   and >5 failures in 5mins; 
+   then alert SOC team
+   if >50 failures in 1hr;
+   then notify SOC manager`
    
 2. There were floods of web requests from a single source IP in a short period of time.
+`if ipaddress requests >120 per minute;
+   then alert SOC team
+   if >1000 in 10mins;
+   then notify SOC manager`
    
 3. There were suspicious successful web requests to access JPG images from IPs outside of the United States.
-
+`if file request = .jpg
+   and iplocation !=United States
+   and >120 requests per min
+   then alert SOC team
+      if >500 in 5mins;
+      then notify SOC manager`
 ---
