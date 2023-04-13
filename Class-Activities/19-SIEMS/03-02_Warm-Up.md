@@ -21,8 +21,8 @@ In today's activities, you will continue to play the role of the SOC manager at 
 
     - What is the city and country of the top source IP address? `Phoenix - South Africa`
 
-    - Provide a brief summary of the attack name found. `Vulnerability in Oracle that allows an attacker to craft a single byte packet that crashes the TNS listener to cause a Denial-of-Service
+    - Provide a brief summary of the attack name found. `Vulnerability in Oracle that allows an attacker to craft a single byte packet that crashes the TNS listener to cause a Denial-of-Service`
     
-    - What is a recommended mitigation for this attack? `Patch software (vulnerability fixed by Oracle in 2005) and use defense-in-depth
+    - What is a recommended mitigation for this attack? `Patch software (vulnerability fixed by Oracle in 2005) and use defense-in-depth`
 
 ---
