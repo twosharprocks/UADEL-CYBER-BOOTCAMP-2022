@@ -14,10 +14,10 @@
 
 2. Design a search to look at failed logins, which is represented by `EventCode` `4625`.
 
-3. Determine when the attack happened.
+3. Determine when the attack happened. `6am-8am on Tue Feb 11`
 
-4. Determine the approximate average of normal bad logins per hour.
+4. Determine the approximate average of normal bad logins per hour. `EventCode=4625 | stats count by date_mday date_hour | stats median(count)` = 2
 
-5. Determine a threshold of logins that will alert if a brute force is occurring.
+5. Determine a threshold of logins that will alert if a brute force is occurring. `Set alert at 5 or more`
 
 ---
