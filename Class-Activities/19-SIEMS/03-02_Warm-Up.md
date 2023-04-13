@@ -11,18 +11,18 @@ In today's activities, you will continue to play the role of the SOC manager at 
 
 1. Upload the provided log file: `fortinet_IPS_logs.csv`
 
-2. Determine the top source IP address.
+2. Determine the top source IP address. `41.146.8.66`
 
-3. Determine the primary attack name in the logs.
+3. Determine the primary attack name in the logs. `Oracle.9i.TNS.OneByte.DoS`
 
 4. Answer the following questions. (Use Google to assist in your research.)
 
-    - Fortinet logs are from which type of device?
+    - Fortinet logs are from which type of device? `Firewall`
 
-    - What is the city and country of the top source IP address?
+    - What is the city and country of the top source IP address? `Phoenix - South Africa`
 
-    - Provide a brief summary of the attack name found.
+    - Provide a brief summary of the attack name found. `Vulnerability in Oracle that allows an attacker to craft a single byte packet that crashes the TNS listener to cause a Denial-of-Service
     
-    - What is a recommended mitigation for this attack?
+    - What is a recommended mitigation for this attack? `Patch software (vulnerability fixed by Oracle in 2005) and use defense-in-depth
 
 ---
