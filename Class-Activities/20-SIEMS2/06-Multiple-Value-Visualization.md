@@ -13,6 +13,7 @@
     - `http_method=POST`
 
     Add the `top` command to display the top 10 URI paths (`uri_path`).
+    `source="radialgauge.csv" http_method=POST| top limit=10 uri_path`
 
 2. Visualize the data in a pie chart.
 
