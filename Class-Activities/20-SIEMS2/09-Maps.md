@@ -14,6 +14,8 @@
     - `http_method=POST`
 
     **Hint:** Add `iplocation` and `geostats` to your query.
+    
+    `source="radialgauge.csv" http_method=POST | iplocation src_ip | geostats count`
  
 2. Save your visualization as a report titled: "Geographic Map - POST request monitor by Source IP."   
   
@@ -22,3 +24,5 @@
 - Modify the search to display in the same map the URIs being attacked.
   
   - **Hint:** Research how to modify the `geostats` command.
+
+    `source="radialgauge.csv" http_method=POST | iplocation src_ip | geostats count by uri_path`
