@@ -9,6 +9,7 @@ OMP management has approved a larger budget for the SOC to enhance the security 
 
 1. Review the following lists of vendors for the following products:
     - [UBA/UEBA](https://www.itcentralstation.com/categories/user-behavior-analytics-ueba)
+
     - [SOAR](https://www.itcentralstation.com/categories/security-orchestration-automation-and-response-soar)
   
 2. Select a vendor for each product.
