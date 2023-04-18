@@ -15,6 +15,7 @@ OMP management has approved a larger budget for the SOC to enhance the security 
 2. Select a vendor for each product.
 
     `- UBA/UEBA: Microsoft Sentiel, Palo Alto Cortex XSOAR, Splunk SOAR, LogPoint`
+
     `- SOAR: IBM QRadar, Cynet, Securonix Next-gen SIEM, Rapid7 InsightIDR`
 
 3. Research each product by visiting their vendor's website.
