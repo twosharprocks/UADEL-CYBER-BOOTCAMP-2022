@@ -14,10 +14,16 @@
 
      - ["Cloud Forensics: Trends and Challenges," International Journal of Engineering Research & Technology, 2020.](https://www.ijert.org/research/cloud-forensics-trends-and-challenges-IJERTV9IS090415.pdf)
 2. List at least four challenges associated with conducting a cloud forensics investigation. 
+     - `Storage system is no longer local`
+     - `Cloud server shares files from many clients`
+     - `Difficult to separate data from between tenants`
+     - `Difficult to reconstruct deleted data`
+     - `Difficult to link particular file to a suspect`
 
 3. Using the following resource for additional research, explain how these challenges affect the chain of custody. 
 
      - ["Analysis of Cloud Forensics: Review and Impact on Digital Forensics Aspects," International Journal of Scientific Research in Science and Technology, 2021.](https://www.academia.edu/48855680/Analysis_of_Cloud_Forensics_Review_and_Impact_on_Digital_Forensics_Aspects)
+     - `
 
 
 #### Bonus 
