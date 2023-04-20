@@ -15,9 +15,22 @@
 2. As your team prepares for the investigation, collect the following information:
 
    1. What are the basic facts of the case?
+   - 
 
    2. Who are the suspects?
+   - `Tracy: supervisor at National Gallery`
+   - `Terry: Daughter of Tracey & Joe`
+   - `Joe: Father of Terry, Ex-Husband of Tracy`
+   - `Pat: Tracy's brother`
+   - `Alex: Krasnovian wishing to embarrass US`
+   - `Carry: Krasnovian supporter contacted by Alex`
 
    3. What evidence was confiscated?
+   - `Carry's Tablet`
+   - `Tracy's iPhone`
+   - `Tracy's External Hard Drive`
+   - `Tracy's Macbook Air`
+   - `Carry's Phone`
 
    4. What could be admissible as evidence?
+   - 
